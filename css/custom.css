@@ -1,0 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+*{
+    font-family: Roboto;
+}
+body {
+    background-color: #222324;
+}
+body a {
+    text-decoration: none;
+}
+li a:hover{
+    color: black !important;
+}
+.mainnav .active{
+    color: red!important;
+}
+.mainnav{
+    padding: auto 100px !important;
+}
+.mainnav .active::after{
+    content: '';
+    background-color: red;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+}
+
+section.hero {
+    margin-top: 60px !important;
+    justify-content: center;
+    background: rgb(0,35,36);
+    background: linear-gradient(90deg, rgba(0,35,36,1) 0%, rgba(9,9,121,1) 15%, rgba(0,212,255,1) 100%);
+}
+
+section .text-label{
+    font-size: 45px;
+    font-weight: bold;
+    padding: 20px 0;
+    color: white;
+}
+
+section .text-hero-bold{
+    font-weight: normal;
+    color: wheat;
+    margin: 20px 0;
+}
+
+.album-covers::after{
+    content: '';
+    height: 5px;
+    display: block;
+    width: 50%;
+    margin-top: 15px;
+    background: rgb(24,49,82);
+    background: linear-gradient(90deg, rgba(24,49,82,0) 0%, rgba(44,200,229,1) 68%, rgba(0,212,255,0) 100%);
+}
+.album-covers{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center !important;
+    color: white;
+    margin: 40px 0;
+    font-size: 30px;
+}
+.text-white{
+    color: white !important;
+}
+.album_cover {
+    position: relative;
+}
+.music_lists{
+    position: absolute;
+    background-color: #000000bb;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+    transition: all .5s ease;
+}
+.music_lists:hover{
+    opacity: 1;
+    transition-delay: .1s;
+}
+.the_icon{
+    left: 50%;
+    top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    size: 200px;
+}
+.album-img{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+}
+.albums{
+    flex-wrap: wrap;
+}
