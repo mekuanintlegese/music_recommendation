@@ -10,7 +10,6 @@
     <link rel="stylesheet" type="text/css" href="css/custom.css">
 </head>
 <body>
-
      <main>
             <nav class="mainnav shadow navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
              <div class="container-fluid">
@@ -34,20 +33,28 @@
                     <a class="nav-link" href="ranks.php">Ranking</a>
                     </li>
 
+                    <!-- <li class="nav-item navlist">
+                    <a class="nav-link" href="favorites.php">Favorites</a>
+                    </li>
+
                     <img class="rounded-circle" src="./images/user_icon.png" style="height: 40px; width: 40px;" alt="">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown"> 
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        
+                    Mark
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end make_black bg-dark">
                         <li><a class="dropdown-item text-white" href="#"> <i class="bi bi-person"></i> Profile</a></li>
                         <li><a class="dropdown-item text-white" href="#"><i class="bi bi-gear"></i> Settings</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item text-white" href="#"> <i class="bi bi-box-arrow-right"></i> Logout</a></li>
-                    </ul>
-                    </li>
+                    </ul> -->
 
-                    <!-- <button type="button" class="btn btn-outline-primary pt-0 pb-0">Sign Up</button> -->
+
+                    <li>
+                        <a class="pt-3" styel="padding-top: 10px;" href="./login.php"><button type="button" class="btn btn-outline-primary pt-0 pb-0">Get Started</button></a>
+                    </li>
+            
+
                     
                 </ul>
 
@@ -69,7 +76,7 @@
                                 are tailored to your tastes, ensuring every discovery is a delightful experience.
                                 </div>
                                 <div class="cta">
-                                    <a href="#" class="btn btn-primary shadow-none">Explore Now</a>
+                                    <a href="albums.php" class="btn btn-primary shadow-none">Explore Now</a>
                                 </div>
                     
                             </div>
@@ -80,7 +87,6 @@
                     </div>
                 </div>
             </section>
-
 
             <h5 class="album-covers mx-5">Top Albums of this Week</h5>
             <section class="p-4 mx-5 d-flex justify-content-center albums">
@@ -148,6 +154,29 @@
      <footer>
         <div class="footer">© 2024 by Barry McArdle.</div>
      </footer>
+
+
+     <!-- Modal -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <?php
+                   include './login/index.php';
+                ?>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+            </div>
+        </div>
+        </div>
+
 
     
      <script src="js/bootstrap.bundle.min.js"></script>

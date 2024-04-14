@@ -1,0 +1,50 @@
+.login_page {
+    background-image: url(../images/albums_page_cover.jpg);
+}
+.login{
+    width: 40%;
+    height: min-content;
+    padding: 20px;
+    border-radius: 12px;
+    background-color: white;
+}
+.login_page{
+    /* height: 92vh; */
+    padding: 100px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login h1{
+    font-size: 36px;
+    margin-bottom: 25px;
+}
+.login form{
+    font-size: 20px;
+}
+.login form .form-group{
+    margin-bottom: 12px;
+}
+.login form input[type="submit"] {
+    font-size: 20px;
+    margin-top: 15px;
+}
+.form-label{
+    font-size: 15px;
+    font-weight: 300;
+    padding: 0;
+    margin: 5px 0;
+}
+.form-check-label {
+    font-size: 16px !important;
+    font-weight: 350;
+}
+.check-label{
+    font-size: 16px !important;
+    font-weight: 350;
+}
+.login_title{
+    font-weight: 200;
+    
+}
