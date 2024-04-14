@@ -17,6 +17,10 @@ li a:hover{
 .mainnav{
     padding: auto 100px !important;
 }
+.lead{
+    font-weight: bold;
+    padding: 10px 0 0 0;
+}
 .mainnav .active::after{
     content: '';
     background-color: red;
@@ -24,7 +28,20 @@ li a:hover{
     display: block;
     margin-top: 5px;
 }
-
+.nav-item.navlist:not(.active) > .nav-link:hover::after {
+    content: '';
+    background-color: red;
+    height: 2px;
+    display: block;
+    margin-top: 5px;
+    color: white;
+}
+.nav-item a:hover{
+    color: white !important;
+}
+.navlist{
+    margin-right: 15px;
+}
 section.hero {
     margin-top: 60px !important;
     justify-content: center;
@@ -41,7 +58,7 @@ section .text-label{
 
 section .text-hero-bold{
     font-weight: normal;
-    color: wheat;
+    color: white;
     margin: 20px 0;
 }
 
@@ -60,7 +77,7 @@ section .text-hero-bold{
     align-items: center;
     justify-content: center !important;
     color: white;
-    margin: 40px 0;
+    margin: 40px 0 0px 0;
     font-size: 30px;
 }
 .text-white{
@@ -83,6 +100,9 @@ section .text-hero-bold{
     opacity: 1;
     transition-delay: .1s;
 }
+.make_black li a:hover{
+    color: black !important;
+}
 .the_icon{
     left: 50%;
     top: 50%;
@@ -98,3 +118,74 @@ section .text-hero-bold{
 .albums{
     flex-wrap: wrap;
 }
+.footer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    padding: 10px;
+    font-size: 17px;
+    background: linear-gradient(90deg, rgba(24,49,82,0) 0%, rgba(44,200,229,1) 68%, rgba(0,212,255,0) 100%);
+}
+
+
+/* Albums Page */
+.albums .text-label{
+    font-size: 40px;
+    font-weight: bold;
+    padding: 20px 0 0 0;
+    color: white;
+}
+.albums .text-hero-bold{
+    font-weight: normal;
+    color: wheat;
+    /* margin: 20px 0; */
+}
+.small_img {
+    width: 200px;
+    height: 200px;
+    /* translate: calc(50px); */
+}
+.album .col-md-9{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.album .text-label{
+    padding: 0;
+}
+.album_image {
+    width: 100%;
+    border-radius: 10px;
+    margin: 15px 0;
+}
+.album_container .text-label{
+    font-size: 30px;
+    margin-left: 10px;
+    padding: 20px 0 0 0;
+}
+.album_details p {
+    padding: 0 0 0 -10px;
+    margin: 5px 0 0 -20px;
+    color: white;
+}
+.smaller_img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+.song-small{
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(24,49,81,1) 15%, rgba(25,51,83,1) 67%, rgba(0,212,255,0) 100%);
+    transition: all .3s ease;
+}
+.song-small:hover{
+    border: solid thin grey;
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
+/* Ranks Page */
+
+

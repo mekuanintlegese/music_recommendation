@@ -23,11 +23,11 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item navlist">
-                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                     </li>
 
                     <li class="nav-item navlist">
-                    <a class="nav-link" href="albums.php">Albums</a>
+                    <a class="nav-link active" aria-current="page"  href="albums.php">Albums</a>
                     </li>
 
                     <li class="nav-item navlist">
@@ -56,31 +56,25 @@
                </div>
             </nav>
 
-            <section class="hero">
+            <section class="hero albums">
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-6">
+                        <div class="col-md-9">
                             <div class="copy">
                                 <div class="text-label">
-                                Discover Your Next Favorite Albums
+                                Explore Our Featured Albums
                                 </div>
                                 <div class="text-hero-bold">
-                                Whether you're a seasoned music enthusiast or just starting your journey, our personalized recommendations 
-                                are tailored to your tastes, ensuring every discovery is a delightful experience.
-                                </div>
-                                <div class="cta">
-                                    <a href="#" class="btn btn-primary shadow-none">Explore Now</a>
-                                </div>
-                    
+                                Dive into a diverse collection of handpicked albums spanning various genres, eras, and styles, 
+                                each carefully selected to offer a captivating musical journey for every listener.</div>                    
                             </div>
                         </div>
-                        <div class="col-md-6">
-                             <img src="images/hero_section.png" alt="">
+                        <div class="col-md-3">
+                             <img class="small_img" src="images/albums_hero.png" alt="">
                         </div>
                     </div>
                 </div>
             </section>
-
 
             <h5 class="album-covers mx-5">Top Albums of this Week</h5>
             <section class="p-4 mx-5 d-flex justify-content-center albums">
@@ -89,7 +83,7 @@
                 <div class="m-1 p-4 text-center">
                     <div class="album_cover">
                         <img src="images/0.png" class="rounded album-img img-fluid" alt="">
-                        <a href="">
+                        <a href="album.php">
                             <div class="music_lists">
                                 <i class="bi bi-music-note-list the_icon"></i>
                             </div>
@@ -97,13 +91,13 @@
                     </div>
                     <div class="lead text-white">Album Title</div>
                     <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">9.5/10</small>
+                    <small class="text-muted text-white">Sond Description</small>
                 </div>
 
                 <div class="m-1 p-4 text-center">
                     <div class="album_cover">
                         <img src="images/1.jpg" class="rounded album-img img-fluid" alt="">
-                        <a href="">
+                        <a href="album.php">
                             <div class="music_lists">
                                 <i class="bi bi-music-note-list the_icon"></i>
                             </div>
@@ -111,13 +105,13 @@
                     </div>
                     <div class="lead text-white">Album Title</div>
                     <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">9.5/10</small>
+                    <small class="text-muted text-white">Sond Description</small>
                 </div>
 
                 <div class="m-1 p-4 text-center">
                     <div class="album_cover">
                         <img src="images/3.jpg" class="rounded album-img img-fluid" alt="">
-                        <a href="">
+                        <a href="album.php">
                             <div class="music_lists">
                                 <i class="bi bi-music-note-list the_icon"></i>
                             </div>
@@ -125,13 +119,13 @@
                     </div>
                     <div class="lead text-white">Album Title</div>
                     <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">9.5/10</small>
+                    <small class="text-muted text-white">Sond Description</small>
                 </div>
 
                 <div class="m-1 p-4 text-center">
                     <div class="album_cover">
                         <img src="images/3.webp" class="rounded album-img img-fluid" alt="">
-                        <a href="">
+                        <a href="album.php">
                             <div class="music_lists">
                                 <i class="bi bi-music-note-list the_icon"></i>
                             </div>
@@ -139,7 +133,7 @@
                     </div>
                     <div class="lead text-white">Album Title</div>
                     <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">9.5/10</small>
+                    <small class="text-muted text-white">Sond Description</small>
                 </div>
 
             </section>

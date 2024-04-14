@@ -23,7 +23,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                     <li class="nav-item navlist">
-                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                     </li>
 
                     <li class="nav-item navlist">
@@ -31,7 +31,7 @@
                     </li>
 
                     <li class="nav-item navlist">
-                    <a class="nav-link" href="ranks.php">Ranking</a>
+                    <a class="nav-link active" aria-current="page"  href="ranks.php">Ranking</a>
                     </li>
 
                     <img class="rounded-circle" src="./images/user_icon.png" style="height: 40px; width: 40px;" alt="">
@@ -56,31 +56,25 @@
                </div>
             </nav>
 
-            <section class="hero">
+            <section class="hero albums">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="copy">
                                 <div class="text-label">
-                                Discover Your Next Favorite Albums
+                                Top-Rated Albums Ranking
                                 </div>
                                 <div class="text-hero-bold">
-                                Whether you're a seasoned music enthusiast or just starting your journey, our personalized recommendations 
-                                are tailored to your tastes, ensuring every discovery is a delightful experience.
-                                </div>
-                                <div class="cta">
-                                    <a href="#" class="btn btn-primary shadow-none">Explore Now</a>
-                                </div>
-                    
+                                Discover the best-rated albums based on our recommendation scores, curated to guide you to exceptional musical experiences.    
+                            </div>                    
                             </div>
                         </div>
                         <div class="col-md-6">
-                             <img src="images/hero_section.png" alt="">
+                             <img class="" src="images/ranks_hero.png" alt="">
                         </div>
                     </div>
                 </div>
             </section>
-
 
             <h5 class="album-covers mx-5">Top Albums of this Week</h5>
             <section class="p-4 mx-5 d-flex justify-content-center albums">
@@ -97,7 +91,7 @@
                     </div>
                     <div class="lead text-white">Album Title</div>
                     <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">9.5/10</small>
+                    <small class="text-muted text-white">Sond Description</small>
                 </div>
 
                 <div class="m-1 p-4 text-center">
@@ -111,7 +105,7 @@
                     </div>
                     <div class="lead text-white">Album Title</div>
                     <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">9.5/10</small>
+                    <small class="text-muted text-white">Sond Description</small>
                 </div>
 
                 <div class="m-1 p-4 text-center">
@@ -125,7 +119,7 @@
                     </div>
                     <div class="lead text-white">Album Title</div>
                     <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">9.5/10</small>
+                    <small class="text-muted text-white">Sond Description</small>
                 </div>
 
                 <div class="m-1 p-4 text-center">
@@ -139,7 +133,7 @@
                     </div>
                     <div class="lead text-white">Album Title</div>
                     <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">9.5/10</small>
+                    <small class="text-muted text-white">Sond Description</small>
                 </div>
 
             </section>
