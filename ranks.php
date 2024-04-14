@@ -76,67 +76,53 @@
                 </div>
             </section>
 
-            <h5 class="album-covers mx-5">Top Albums of this Week</h5>
-            <section class="p-4 mx-5 d-flex justify-content-center albums">
+            <h5 class="album-covers mx-5">Top Albums by Recommendation Score</h5>
+            <table class="mt-4 m-2 table bg-dark table-dark table-striped  align-middle table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col"> Rank </th>
+                    <th scope="col"> Album Cover </th>
+                    <th scope="col"> Album Title </th>
+                    <th scope="col"> Performer </th>
+                    <th scope="col"> Release Year </th>
+                    <th scope="col"> Genre </th>
+                    <th scope="col"> Recommendation Score </th>
+                    </tr>
+                </thead>
+                <tbody>
 
+                    <tr >
+                    <th scope="row">1</th>
+                    <td> <a href="album.php?1"><img class="rounded m-1 album_img" src="images/0.png" alt=""></a> </td>
+                    <td>Thriller</td>
+                    <td>Michael Jackson</td>
+                    <td>1997</td>
+                    <td>Pop</td>
+                    <td>9/10</td>
+                    </tr>
 
-                <div class="m-1 p-4 text-center">
-                    <div class="album_cover">
-                        <img src="images/0.png" class="rounded album-img img-fluid" alt="">
-                        <a href="">
-                            <div class="music_lists">
-                                <i class="bi bi-music-note-list the_icon"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="lead text-white">Album Title</div>
-                    <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">Sond Description</small>
-                </div>
+                    <tr>
+                    <th scope="row">2</th>
+                    <td> <img class="rounded m-1 album_img" src="images/1.jpg" alt=""></td>
+                    <td>Thriller</td>
+                    <td>Michael Jackson</td>
+                    <td>1997</td>
+                    <td>Pop</td>
+                    <td>9/10</td>
+                    </tr>
 
-                <div class="m-1 p-4 text-center">
-                    <div class="album_cover">
-                        <img src="images/1.jpg" class="rounded album-img img-fluid" alt="">
-                        <a href="">
-                            <div class="music_lists">
-                                <i class="bi bi-music-note-list the_icon"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="lead text-white">Album Title</div>
-                    <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">Sond Description</small>
-                </div>
+                    <tr>
+                    <th scope="row">3</th>
+                    <td> <img class="rounded m-1 album_img" src="images/2.jpg" alt=""></td>
+                    <td>Thriller</td>
+                    <td>Michael Jackson</td>
+                    <td>1997</td>
+                    <td>Pop</td>
+                    <td>9/10</td>
+                    </tr>
 
-                <div class="m-1 p-4 text-center">
-                    <div class="album_cover">
-                        <img src="images/3.jpg" class="rounded album-img img-fluid" alt="">
-                        <a href="">
-                            <div class="music_lists">
-                                <i class="bi bi-music-note-list the_icon"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="lead text-white">Album Title</div>
-                    <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">Sond Description</small>
-                </div>
-
-                <div class="m-1 p-4 text-center">
-                    <div class="album_cover">
-                        <img src="images/3.webp" class="rounded album-img img-fluid" alt="">
-                        <a href="">
-                            <div class="music_lists">
-                                <i class="bi bi-music-note-list the_icon"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="lead text-white">Album Title</div>
-                    <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">Sond Description</small>
-                </div>
-
-            </section>
+                </tbody>
+                </table>
      </main>
 
      <footer>

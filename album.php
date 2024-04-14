@@ -56,7 +56,8 @@
                </div>
              </nav>
 
-            <section class="hero album">
+           
+             <section class="hero album">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9">
@@ -77,7 +78,6 @@
             </section>
            
             <h5 class="album-covers mx-5">Immerse Yourself in Musical Excellence</h5>
-
             <section class="album_container">
                 <div class="container">
                     <div class="row">

@@ -187,5 +187,18 @@ section .text-hero-bold{
 }
 
 /* Ranks Page */
-
-
+.album-cover{
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(24,49,81,1) 15%, rgba(25,51,83,1) 67%, rgba(0,212,255,0) 100%);
+    transition: all .3s ease;
+}
+.smaller_img{
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+}
+.album_img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+}
