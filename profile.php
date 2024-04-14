@@ -12,7 +12,7 @@
 <body>
 
      <main>
-     <nav class="mainnav shadow navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <nav class="mainnav shadow navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
              <div class="container-fluid">
                 <a class="navbar-brand" href="#"><i class="bi bi-earbuds"></i> Musicology</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -23,7 +23,7 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center>
                     <li class="nav-item navlist">
-                    <a class="nav-link" href="index.php">Home</a>
+                    <a class="nav-link  active" aria-current="page" href="index.php">Home</a>
                     </li>
 
                     <li class="nav-item navlist">
@@ -31,10 +31,10 @@
                     </li>
 
                     <li class="nav-item navlist">
-                    <a class="nav-link active" aria-current="page" href="ranks.php">Ranking</a>
+                    <a class="nav-link" href="ranks.php">Ranking</a>
                     </li>
 
-                    <!-- <li class="nav-item navlist">
+                    <li class="nav-item navlist">
                     <a class="nav-link" href="favorites.php">Favorites</a>
                     </li>
 
@@ -44,11 +44,11 @@
                     Mark
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end make_black bg-dark">
-                        <li><a class="dropdown-item text-white" href="#"> <i class="bi bi-person"></i> Profile</a></li>
+                        <li><a class="dropdown-item text-white" href="profile.php"> <i class="bi bi-person"></i> Profile</a></li>
                         <li><a class="dropdown-item text-white" href="#"><i class="bi bi-gear"></i> Settings</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item text-white" href="#"> <i class="bi bi-box-arrow-right"></i> Logout</a></li>
-                    </ul> -->
+                    </ul>
 
 
                     <li>
@@ -64,72 +64,24 @@
             </nav>
 
             <section class="hero albums">
-                <div class="container">
-                    <div class="row">
+                <div class="prof_conatner">
+
+                    <div class="continer p-2 col-md-12">
                         <div class="col-md-6">
-                            <div class="copy">
-                                <div class="text-label">
-                                Top-Rated Albums Ranking
-                                </div>
-                                <div class="text-hero-bold">
-                                Discover the best-rated albums based on our recommendation scores, curated to guide you to exceptional musical experiences.    
-                            </div>                    
-                            </div>
+                            <img class="profile_image" src="./images/user_icon.png" alt="">
                         </div>
-                        <div class="col-md-6">
-                             <img class="" src="images/ranks_hero.png" alt="">
+                        <div class="col-md-6 details">
+                            <ul>
+                                <li>First Name: Mick</li>
+                                <li>Last Name: Mick</li>
+                                <li>Username: micke101</li>
+                                <li>Email: micke101@gmail.com</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
             </section>
 
-            <h5 class="album-covers mx-5">Top Albums by Recommendation Score</h5>
-            <table class="mt-4 m-2 table bg-dark table-dark table-striped  align-middle table-hover">
-                <thead>
-                    <tr>
-                    <th scope="col"> Rank </th>
-                    <th scope="col"> Album Cover </th>
-                    <th scope="col"> Album Title </th>
-                    <th scope="col"> Performer </th>
-                    <th scope="col"> Release Year </th>
-                    <th scope="col"> Genre </th>
-                    <th scope="col"> Recommendation Score </th>
-                    </tr>
-                </thead>
-                <tbody>
-
-                    <tr >
-                    <th scope="row">1</th>
-                    <td> <a href="album.php?1"><img class="rounded m-1 album_img" src="images/0.png" alt=""></a> </td>
-                    <td>Thriller</td>
-                    <td>Michael Jackson</td>
-                    <td>1997</td>
-                    <td>Pop</td>
-                    <td>9/10</td>
-                    </tr>
-
-                    <tr>
-                    <th scope="row">2</th>
-                    <td> <img class="rounded m-1 album_img" src="images/1.jpg" alt=""></td>
-                    <td>Thriller</td>
-                    <td>Michael Jackson</td>
-                    <td>1997</td>
-                    <td>Pop</td>
-                    <td>9/10</td>
-                    </tr>
-
-                    <tr>
-                    <th scope="row">3</th>
-                    <td> <img class="rounded m-1 album_img" src="images/2.jpg" alt=""></td>
-                    <td>Thriller</td>
-                    <td>Michael Jackson</td>
-                    <td>1997</td>
-                    <td>Pop</td>
-                    <td>9/10</td>
-                    </tr>
-
-                </tbody>
-                </table>
      </main>
 
      <footer>

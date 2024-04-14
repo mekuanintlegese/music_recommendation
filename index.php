@@ -20,7 +20,7 @@
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center>
                     <li class="nav-item navlist">
                     <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
@@ -51,9 +51,8 @@
 
 
                     <li>
-                        <a class="pt-3" styel="padding-top: 10px;" href="./login.php"><button type="button" class="btn btn-outline-primary pt-0 pb-0">Get Started</button></a>
-                    </li>
-            
+                        <a class="pt-3" styel="padding-top: 10px;" href="./login.php"><button type="button" class="btn btn-outline-primary">Get Started</button></a>
+                    </li>   
 
                     
                 </ul>
@@ -95,7 +94,7 @@
                 <div class="m-1 p-4 text-center">
                     <div class="album_cover">
                         <img src="images/0.png" class="rounded album-img img-fluid" alt="">
-                        <a href="">
+                        <a href="album.php">
                             <div class="music_lists">
                                 <i class="bi bi-music-note-list the_icon"></i>
                             </div>
@@ -103,13 +102,13 @@
                     </div>
                     <div class="lead text-white">Album Title</div>
                     <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">9.5/10</small>
+                    <small class="text-muted text-white">Sond Description</small>
                 </div>
 
                 <div class="m-1 p-4 text-center">
                     <div class="album_cover">
                         <img src="images/1.jpg" class="rounded album-img img-fluid" alt="">
-                        <a href="">
+                        <a href="album.php">
                             <div class="music_lists">
                                 <i class="bi bi-music-note-list the_icon"></i>
                             </div>
@@ -117,13 +116,13 @@
                     </div>
                     <div class="lead text-white">Album Title</div>
                     <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">9.5/10</small>
+                    <small class="text-muted text-white">Sond Description</small>
                 </div>
 
                 <div class="m-1 p-4 text-center">
                     <div class="album_cover">
                         <img src="images/3.jpg" class="rounded album-img img-fluid" alt="">
-                        <a href="">
+                        <a href="album.php">
                             <div class="music_lists">
                                 <i class="bi bi-music-note-list the_icon"></i>
                             </div>
@@ -131,13 +130,13 @@
                     </div>
                     <div class="lead text-white">Album Title</div>
                     <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">9.5/10</small>
+                    <small class="text-muted text-white">Sond Description</small>
                 </div>
 
                 <div class="m-1 p-4 text-center">
                     <div class="album_cover">
                         <img src="images/3.webp" class="rounded album-img img-fluid" alt="">
-                        <a href="">
+                        <a href="album.php">
                             <div class="music_lists">
                                 <i class="bi bi-music-note-list the_icon"></i>
                             </div>
@@ -145,7 +144,7 @@
                     </div>
                     <div class="lead text-white">Album Title</div>
                     <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">9.5/10</small>
+                    <small class="text-muted text-white">Sond Description</small>
                 </div>
 
             </section>

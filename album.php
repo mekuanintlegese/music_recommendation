@@ -21,40 +21,47 @@
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center>
                     <li class="nav-item navlist">
                     <a class="nav-link" href="index.php">Home</a>
                     </li>
 
                     <li class="nav-item navlist">
-                    <a class="nav-link active" aria-current="page"  href="albums.php">Albums</a>
+                    <a class="nav-link  active" aria-current="page" href="albums.php">Albums</a>
                     </li>
 
                     <li class="nav-item navlist">
                     <a class="nav-link" href="ranks.php">Ranking</a>
                     </li>
 
+                    <!-- <li class="nav-item navlist">
+                    <a class="nav-link" href="favorites.php">Favorites</a>
+                    </li>
+
                     <img class="rounded-circle" src="./images/user_icon.png" style="height: 40px; width: 40px;" alt="">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown"> 
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        
+                    Mark
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end make_black bg-dark">
                         <li><a class="dropdown-item text-white" href="#"> <i class="bi bi-person"></i> Profile</a></li>
                         <li><a class="dropdown-item text-white" href="#"><i class="bi bi-gear"></i> Settings</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item text-white" href="#"> <i class="bi bi-box-arrow-right"></i> Logout</a></li>
-                    </ul>
-                    </li>
+                    </ul> -->
 
-                    <!-- <button type="button" class="btn btn-outline-primary pt-0 pb-0">Sign Up</button> -->
+
+                    <li>
+                        <a class="pt-3" styel="padding-top: 10px;" href="./login.php"><button type="button" class="btn btn-outline-primary">Get Started</button></a>
+                    </li>   
+
                     
                 </ul>
 
 
                 </div>
                </div>
-             </nav>
+            </nav>
 
            
              <section class="hero album">
@@ -75,7 +82,7 @@
                         </div>
                     </div>
                 </div>
-            </section>
+             </section>
            
             <h5 class="album-covers mx-5">Immerse Yourself in Musical Excellence</h5>
             <section class="album_container">
@@ -220,6 +227,106 @@
                 </div>
             </section>    
 
+            <h5 class="album-covers mx-5 pb-4">Users Review</h5>
+            <section class="user_reviews">
+               
+                <!-- <p class="text-white">No User Reviews Yet!</p> -->
+                
+                <div class="users_review d-flex">
+                        <div class="users_box d-flex justify-content-between">
+                                <div class="user_conatiner d-flex">
+                                        <div class="box_1 m-2">
+                                             <div class="img"><img class="review_images" src="./images/0.png" alt=""></div>
+                                        </div> 
+
+                                        <div class="box_2">
+                                                <p class="names">Nina Simon</p>
+                                                <p class="rdate">April 3, 2027</p>
+                                        </div>
+                                </div>
+
+                                <div class="ratings">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                   
+                                   <span> 9.5/10</span>
+                                </div>
+                        </div>
+                        <div class="comments">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa enim deserunt totam nobis facere ab! Quas ducimus ratione et dolore, soluta quos similique unde a! Tenetur ratione aliquid ad!</p>
+                        </div>
+                </div>
+                <div class="users_review d-flex">
+                        <div class="users_box d-flex justify-content-between">
+                                <div class="user_conatiner d-flex">
+                                        <div class="box_1 m-2">
+                                             <div class="img"><img class="review_images" src="./images/0.png" alt=""></div>
+                                        </div> 
+
+                                        <div class="box_2">
+                                                <p class="names">Nina Simon</p>
+                                                <p class="rdate">April 3, 2027</p>
+                                        </div>
+                                </div>
+
+                                <div class="ratings">
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star-fill"></i>
+                                    <i class="bi bi-star"></i>
+                                   
+                                   <span> 9.5/10</span>
+                                </div>
+                        </div>
+                        <div class="comments">
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa enim deserunt totam nobis facere ab! Quas ducimus ratione et dolore, soluta quos similique unde a! Tenetur ratione aliquid ad!</p>
+                        </div>
+                </div>
+
+                <div class="users_review give_review">
+                        <form action="">
+                                <p class="p-0 m-0 d-flex justify-content-center h4">How was your experience?</p>
+                                <div class="col-md-12 d-flex justify-content-center">
+                                        <button class="star">&#9734;</button>
+                                        <button class="star">&#9734;</button>
+                                        <button class="star">&#9734;</button>
+                                        <button class="star">&#9734;</button>
+                                        <button class="star">&#9734;</button>
+                                        <button class="star">&#9734;</button>
+                                        <button class="star">&#9734;</button>
+                                        <button class="star">&#9734;</button>
+                                        <button class="star">&#9734;</button>
+                                        <button class="star">&#9734;</button>
+                                </div>
+                              <div class="form-group ">
+                                <label class="form-label" for="email">Write Your Review</label>
+                               <textarea class="form-control col-md-12"name="" id="" cols="30" rows="4"></textarea>
+                                <div class="invalid-feedback">
+                                    Please enter your review
+                                </div>
+                        </div>
+                        <div class="submit d-flex justify-content-end">
+                                <input type="button" class="btn btn-outline-success mt-2" value="Submit">
+                        </div>
+                        </form>
+                </div>
+            </section>   
+
+
      </main>
 
      <footer>
@@ -228,6 +335,23 @@
 
     
      <script src="js/bootstrap.bundle.min.js"></script>
+     <script>
+    const allStar = document.querySelectorAll('.star');
+    allStar.forEach((star, i) => {
+        star.addEventListener('click', function(event) {
+            event.preventDefault(); 
+            let current_star_level = i + 1;
+            allStar.forEach((star, j) => {
+                if (current_star_level >= j + 1) {
+                    star.innerHTML = '&#9733';
+                } else {
+                    star.innerHTML = '&#9734';
+                }
+            });
+        });
+    });
+</script>
+
 </body>
 </html>
 

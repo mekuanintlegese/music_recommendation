@@ -12,7 +12,7 @@
 <body>
 
      <main>
-            <nav class="mainnav shadow navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+     <nav class="mainnav shadow navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
              <div class="container-fluid">
                 <a class="navbar-brand" href="#"><i class="bi bi-earbuds"></i> Musicology</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,33 +21,40 @@
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center>
                     <li class="nav-item navlist">
                     <a class="nav-link" href="index.php">Home</a>
                     </li>
 
                     <li class="nav-item navlist">
-                    <a class="nav-link active" aria-current="page"  href="albums.php">Albums</a>
+                    <a class="nav-link active" aria-current="page" href="albums.php">Albums</a>
                     </li>
 
                     <li class="nav-item navlist">
                     <a class="nav-link" href="ranks.php">Ranking</a>
                     </li>
 
+                    <!-- <li class="nav-item navlist">
+                    <a class="nav-link" href="favorites.php">Favorites</a>
+                    </li>
+
                     <img class="rounded-circle" src="./images/user_icon.png" style="height: 40px; width: 40px;" alt="">
-                    <li class="nav-item dropdown">
+                    <li class="nav-item dropdown"> 
                     <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        
+                    Mark
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end make_black bg-dark">
                         <li><a class="dropdown-item text-white" href="#"> <i class="bi bi-person"></i> Profile</a></li>
                         <li><a class="dropdown-item text-white" href="#"><i class="bi bi-gear"></i> Settings</a></li>
                         <li><hr class="dropdown-divider"></li>
                         <li><a class="dropdown-item text-white" href="#"> <i class="bi bi-box-arrow-right"></i> Logout</a></li>
-                    </ul>
-                    </li>
+                    </ul> -->
 
-                    <!-- <button type="button" class="btn btn-outline-primary pt-0 pb-0">Sign Up</button> -->
+
+                    <li>
+                        <a class="pt-3" styel="padding-top: 10px;" href="./login.php"><button type="button" class="btn btn-outline-primary">Get Started</button></a>
+                    </li>   
+
                     
                 </ul>
 

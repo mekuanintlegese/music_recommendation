@@ -202,3 +202,111 @@ section .text-hero-bold{
     height: 100px;
     object-fit: cover;
 }
+.users_review{
+    border-radius: 10px;
+    width: 70%;
+    background-color: white;
+    justify-content: center;
+    margin: 20px auto;
+    flex-direction: column;
+}
+.users_review:hover {
+    border: solid thin grey;
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+.give_review form {
+    padding: 20px;
+    /* background-color: black; */
+}
+.star{
+    font-size: 3rem;
+    color: yellow;
+    background-color: unset;
+    border: none;
+}
+.star:hover{
+    cursor: pointer;
+}
+.start_rating{
+    user-select: none;
+}
+.ratings{
+    margin-top: 20px;
+}
+.comments{
+    /* width: 80%; */
+    padding: 0 70px;
+}
+.users_box {
+    width: 110%;
+    padding: 10px 200px 0 20px;
+    margin: auto;
+    justify-content: space-between;
+    /* background-color: #fff; */
+}
+.bi-star-fill{
+    color: yellow;
+}
+.review_images {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.box_2 p{
+    margin: 0;
+}
+.box_2 .names{
+    padding-top: 10px;
+    font-weight: bold;
+}
+.box_2 .rdate{
+    font-weight: 200;
+}
+.profile_image{
+    border-radius: 20px;
+    margin: 20px;
+
+}
+.prof_conatner{
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    height: 80vh;
+}
+.prof_conatner .continer{
+    display: flex;
+    width: 50%;
+    background-color: #fff;
+    border-radius: 20px;
+}
+.prof_conatner .continer .details li{
+    list-style-type: none;
+    padding: 20px;
+    margin-left: -70px;
+}
+.prof_conatner .continer .details{
+    display: flex;
+    align-items: center;
+}
+@media only screen and (max-width: 767px) {
+    .login{
+        width: 80%;
+    }
+    .login_links{
+        display: flex;
+        flex-direction: column;
+        align-items: start !important;
+    }
+
+}
+@media only screen and (max-width: 767px) {
+    .prof_conatner .continer{
+        width: 90%;
+    }
+    .prof_conatner .continer .details li{
+        margin-left: -40px;
+    }
+
+}
