@@ -21,7 +21,7 @@
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center">
                     <li class="nav-item navlist">
                     <a class="nav-link" href="index.php">Home</a>
                     </li>
@@ -46,9 +46,7 @@
                                     break;
                                 }
                             }
-                            echo '<li class="nav-item navlist">';
-                            echo '<a class="nav-link" href="favorites.php">Favorites</a>';
-                            echo '</li>';
+ 
 
                             echo ' <img class="rounded-circle" src="./images/user_icon.png" style="height: 40px; width: 40px;" alt=""> ';
                             echo ' <li class="nav-item dropdown"> ';
@@ -114,7 +112,7 @@
                         echo '<div class="m-1 p-4 text-center">';
                         echo '<div class="album_cover">';
                         echo '<img src="./images/' . $album['cover_image'] . '" class="rounded album-img img-fluid" alt="">';
-                        echo '<a href="album.php?' . $album['id'] .'">';
+                        echo '<a href="album.php?id=' . $album['id'] .'">';
                         echo '<div class="music_lists">';
                         echo '<i class="bi bi-music-note-list the_icon"></i>';
                         echo '</div>';

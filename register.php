@@ -132,9 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     break;
                                 }
                             }
-                            echo '<li class="nav-item navlist">';
-                            echo '<a class="nav-link" href="favorites.php">Favorites</a>';
-                            echo '</li>';
+ 
 
                             echo ' <img class="rounded-circle" src="./images/user_icon.png" style="height: 40px; width: 40px;" alt=""> ';
                             echo ' <li class="nav-item dropdown"> ';

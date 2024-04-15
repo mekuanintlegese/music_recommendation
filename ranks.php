@@ -21,9 +21,9 @@
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center">
                     <li class="nav-item navlist">
-                    <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link" href="index.php">Home</a>
                     </li>
 
                     <li class="nav-item navlist">
@@ -31,7 +31,7 @@
                     </li>
 
                     <li class="nav-item navlist">
-                    <a class="nav-link" href="ranks.php">Ranking</a>
+                    <a class="nav-link active" aria-current="page" href="ranks.php">Ranking</a>
                     </li>
 
                     <?php
@@ -46,9 +46,7 @@
                                     break;
                                 }
                             }
-                            echo '<li class="nav-item navlist">';
-                            echo '<a class="nav-link" href="favorites.php">Favorites</a>';
-                            echo '</li>';
+ 
 
                             echo ' <img class="rounded-circle" src="./images/user_icon.png" style="height: 40px; width: 40px;" alt=""> ';
                             echo ' <li class="nav-item dropdown"> ';
@@ -97,60 +95,69 @@
             </section>
 
             <h5 class="album-covers mx-5">Top Albums by Recommendation Score</h5>
-            <table class="mt-4 m-2 table bg-dark table-dark table-striped  align-middle table-hover">
+            <table id="myTable" class="mt-4 m-2 table bg-dark table-dark table-striped  align-middle table-hover">
                 <thead>
                     <tr>
-                    <th scope="col"> Rank </th>
-                    <th scope="col"> Album Cover </th>
-                    <th scope="col"> Album Title </th>
-                    <th scope="col"> Performer </th>
-                    <th scope="col"> Release Year </th>
-                    <th scope="col"> Genre </th>
-                    <th scope="col"> Recommendation Score </th>
+                    <th onclick="sortTable(1,this)" scope="col"> Rank </th>
+                    <th onclick="sortTable(2,this)" scope="col"> Album Cover </th>
+                    <th onclick="sortTable(3,this)" scope="col"> Album Title </th>
+                    <th onclick="sortTable(4,this)" scope="col"> Performer </th>
+                    <th onclick="sortTable(5,this)" scope="col"> Release Year </th>
+                    <th onclick="sortTable(6,this)" scope="col"> Genre </th>
+                    <th onclick="sortTable(7,this)" scope="col"> Recommendation Score </th>
                     </tr>
                 </thead>
                 <tbody>
-
-                    <tr >
-                    <th scope="row">1</th>
-                    <td> <a href="album.php?1"><img class="rounded m-1 album_img" src="images/0.png" alt=""></a> </td>
-                    <td>Thriller</td>
-                    <td>Michael Jackson</td>
-                    <td>1997</td>
-                    <td>Pop</td>
-                    <td>9/10</td>
-                    </tr>
-
-                    <tr>
-                    <th scope="row">2</th>
-                    <td> <img class="rounded m-1 album_img" src="images/1.jpg" alt=""></td>
-                    <td>Thriller</td>
-                    <td>Michael Jackson</td>
-                    <td>1997</td>
-                    <td>Pop</td>
-                    <td>9/10</td>
-                    </tr>
-
-                    <tr>
-                    <th scope="row">3</th>
-                    <td> <img class="rounded m-1 album_img" src="images/2.jpg" alt=""></td>
-                    <td>Thriller</td>
-                    <td>Michael Jackson</td>
-                    <td>1997</td>
-                    <td>Pop</td>
-                    <td>9/10</td>
-                    </tr>
-
-                </tbody>
+                <?php
+                    // Read data from albums.json
+                    $albums_data = file_get_contents('./data/albums.json');
+                    $albums = json_decode($albums_data, true);
+                    
+                    // Loop through each album and display as table row
+                    foreach ($albums as $index => $album) {
+                        echo '<tr>';
+                        echo '<td>' . ($index + 1) . '</td>';
+                        echo '<td><img class="rounded m-1 album_img" src="images/' . $album['cover_image'] . '" alt=""></td>';
+                        echo '<td>' . $album['title'] . '</td>';
+                        echo '<td>' . $album['performer'] . '</td>';
+                        echo '<td>' . $album['release_year'] . '</td>';
+                        echo '<td>' . $album['genre'] . '</td>';
+                        echo '<td>' . $album['recommendation_score'] . '</td>';
+                        echo '</tr>';
+                    }
+                    ?>
+                    </tbody>
                 </table>
-     </main>
 
-     <footer>
-        <div class="footer">© 2024 by Barry McArdle.</div>
-     </footer>
+                    </main>
 
-    
+<footer>
+   <div class="footer">© 2024 by Barry McArdle.</div>
+</footer>
+
+
      <script src="js/bootstrap.bundle.min.js"></script>
+     <script>
+        function sortTable(n,th) {
+        const table = document.getElementById("myTable");
+        const direction = table.dataset.sortDirection || "asc";
+        const sortedRows = Array.from(table.rows)
+        .slice(1)
+        .sort((rowA,rowB)=>{
+            const comparison = rowA.cells[n].innerText > rowB.cells[n].innerText ? 1 : -1;
+            return direction === "asc" ? comparison : -comparison;
+        });
+        sortedRows.forEach(row => table.appendChild(row));
+        table.dataset.sortDirection = direction === "asc" ? "desc" : "asc";
+        Array.from(table.getElementsByTagName("th")).forEach(header=>{
+            header.innerText = header.innerText.replace(" ▼","").replace(" ▲","");
+        });
+        th.innerText += direction === "asc" ? " ▼" : " ▲";
+        }
+
+
+
+     </script>
 </body>
 </html>
 

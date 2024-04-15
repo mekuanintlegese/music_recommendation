@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Recommanadtion | Welcome </title>
+    <title> Musicology Music Recommanadtion | Welcome </title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
-    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-icons.min.css"> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-icons.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
     <link rel="stylesheet" type="text/css" href="css/custom.css">
 </head>
 <body>
@@ -45,9 +45,7 @@
                                     break;
                                 }
                             }
-                            echo '<li class="nav-item navlist">';
-                            echo '<a class="nav-link" href="favorites.php">Favorites</a>';
-                            echo '</li>';
+ 
 
                             echo ' <img class="rounded-circle" src="./images/user_icon.png" style="height: 40px; width: 40px;" alt=""> ';
                             echo ' <li class="nav-item dropdown"> ';
@@ -118,7 +116,7 @@
                         echo '<div class="m-1 p-4 text-center">';
                         echo '<div class="album_cover">';
                         echo '<img src="./images/' . $album['cover_image'] . '" class="rounded album-img img-fluid" alt="">';
-                        echo '<a href="album.php?' . $album['id'] .'">';
+                        echo '<a href="album.php?id=' . $album['id'] .'">';
                         echo '<div class="music_lists">';
                         echo '<i class="bi bi-music-note-list the_icon"></i>';
                         echo '</div>';

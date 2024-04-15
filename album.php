@@ -1,3 +1,10 @@
+<?php
+session_start();
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,7 +28,7 @@
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center">
                     <li class="nav-item navlist">
                     <a class="nav-link" href="index.php">Home</a>
                     </li>
@@ -35,7 +42,6 @@
                     </li>
 
                     <?php
-                        session_start();
                         if(isset($_SESSION['username'])) {
                             $userData = file_get_contents('./data/user.json');
                             $users = json_decode($userData, true);
@@ -46,10 +52,7 @@
                                     break;
                                 }
                             }
-                            echo '<li class="nav-item navlist">';
-                            echo '<a class="nav-link" href="favorites.php">Favorites</a>';
-                            echo '</li>';
-
+                            
                             echo ' <img class="rounded-circle" src="./images/user_icon.png" style="height: 40px; width: 40px;" alt=""> ';
                             echo ' <li class="nav-item dropdown"> ';
                             echo ' <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $loggedInUser["first_name"] . '</a>';
@@ -74,7 +77,7 @@
 
                 </div>
                </div>
-     </nav>
+    </nav>
 
            
              <section class="hero album">
@@ -98,168 +101,205 @@
              </section>
            
              <?php
-
-                function extractAlbumIdFromUrl($url) {
-                        $pattern = '/\/album.php\?(\d+)/';
-                        if (preg_match($pattern, $url, $matches)) {
-                        $albumId = $matches[1];
-                        return $albumId;
-                        } else {
-                        return false; 
-                        }
-                }
-                // Check if the album ID is provided in the URL
-                if (isset($_GET['id'])) {
-                        $albumId = $_GET['id'];
-                } else {
-                        $url = $_SERVER['REQUEST_URI'];
-                        $albumId = extractAlbumIdFromUrl($url);
-                        if ($albumId === false) {
-                        echo "Album ID is not provided!";
-                        exit;
-                        }
-                }
-
-                        $albumsData = file_get_contents('./data/albums.json');
-                        $albums = json_decode($albumsData, true);
-
-                        // Find the album with the given ID
-                        $selectedAlbum = null;
-                        foreach ($albums as $album) {
-                        if ($album['id'] == $albumId) {
-                                $selectedAlbum = $album;
-                                break;
-                        }
-                        }
-
-                        // If album not found, display a message
-                        if (!$selectedAlbum) {
-                        echo "Album not found!";
-                        } else {
-                        // Display album details dynamically
-                        echo '<h5 class="album-covers mx-5">Immerse Yourself in Musical Excellence</h5>';
-                        echo '<section class="album_container">';
-                        echo '<div class="container">';
-                        echo '<div class="row">';
-                        echo '<div class="col-md-5">';
-                        echo '<img class="album_image" src="./images/' . $selectedAlbum['cover_image'] . '" alt="' . $selectedAlbum['title'] . '">';
-                        echo '</div>';
-                        echo '<div class="col-md-7">';
-                        echo '<div class="copy">';
-                        echo '<div class="text-hero-bold">';
-                        echo '<ul class="album_details">';
-                        echo '<p><b>Album Title - </b>' . $selectedAlbum['title'] . '</p>';
-                        echo '<p><b>Performer - </b>' . $selectedAlbum['performer'] . '</p>';
-                        echo '<p><b>Genre - </b>' . $selectedAlbum['genre'] . '</p>';
-                        echo '<p><b>Release Year - </b>' . $selectedAlbum['release_year'] . '</p>';
-                        echo '<p><b>Description - </b>' . $selectedAlbum['description'] . '</p>';
-                        echo '<p><b>Total Number of Songs - </b>' . count($selectedAlbum['tracklist']) . ' tracks</p>';
-                        echo '<p><b>Total Time - </b>' . $selectedAlbum['total_time'] . '</p>';
-                        echo '<p><b>Producer - </b>' . $selectedAlbum['producer'] . '</p>';
-                        echo '<p><b>Label - </b>' . $selectedAlbum['label'] . '</p>';
-                        echo '<p><b>Awards - </b>' . implode(', ', $selectedAlbum['awards']) . '</p>';
-                        echo '<p><b>Certifications - </b>' . implode(', ', $selectedAlbum['certifications']);
-                        echo '<p><b>Recommendation Score - </b>' . $selectedAlbum['recommendation_score'] . '</p>';
-                        echo '</ul>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</div>';
-                        echo '</section>';
-
-                        // Display tracklist dynamically
-                        echo '<h5 class="album-covers mx-5 pb-4">Tracklist in the Album</h5>';
-                        echo '<section>';
-                        echo '<div class="col-md-12 tab-content" id="pills-tabContent pt-2">';
-                        foreach ($selectedAlbum['tracklist'] as $index => $track) {
-                                echo '<div class="tab-pane fade text-white show active">';
-                                echo '<div class="song-small m-2 ms-4 col-md-6 row align-items-center">';
-                                echo '<div class="col-1 h3">' . sprintf("%02d", $index + 1) . '</div>';
-                                echo '<div class="col d-flex align-items-center">';
-                                echo '<img class="rounded m-1 smaller_img" src="./images/' . $selectedAlbum['cover_image'] . '" alt="">';
-                                echo '<div class="ms-2">' . $track['title'] . '</div>';
-                                echo '</div>';
-                                echo '<div class="col-2"><i class="bi bi-clock m-2"></i>' . $track['duration'] . '</div>';
-                                echo '</div>';
-                                echo '</div>';
-                        }
-                        echo '</div>';
-                        echo '</section>';
-                        
-
-
-
-                        // Display user reviews dynamically
-                        echo '<h5 class="album-covers mx-5 pb-4">Users Review</h5>';
-                        echo '<section class="user_reviews">';
-                        if (isset($selectedAlbum['reviews']) && !empty($selectedAlbum['reviews'])) {
-                            foreach ($selectedAlbum['reviews'] as $review) {
-                                echo '<div class="users_review d-flex">';
-                                echo '<div class="users_box d-flex justify-content-between">';
-                                echo '<div class="user_container d-flex">';
-                                echo '<div class="box_1 m-2">';
-                                echo '<div class="img"><img class="review_images" src="./images/user_icon.png" alt=""></div>'; // Default user image
-                                echo '</div>';
-                                echo '<div class="box_2">';
-                                echo '<p class="names">' . $review['reviewer'] . '</p>';
-                                echo '<p class="rdate">' . $review['date'] . '</p>';
-                                echo '</div>';
-                                echo '</div>';
-                                echo '<div class="ratings">';
-                                $rating = explode('/', $review['rating'])[0]; // Extracting only the numeric part of the rating
-                                for ($i = 0; $i < $rating; $i++) {
-                                    echo '<i class="bi bi-star-fill"></i>';
-                                }
-                                for ($i = 0; $i < (10 - $rating); $i++) {
-                                    echo '<i class="bi bi-star"></i>';
-                                }
-                                echo '<span>' . $review['rating'] . '</span>';
-                                echo '</div>';
-                                echo '</div>';
-                                echo '<div class="comments">';
-                                echo '<p>' . $review['comment'] . '</p>';
-                                echo '</div>';
-                                echo '</div>';
+                            // Check if the album ID is provided in the URL
+                            if (isset($_GET['id'])) {
+                                    $albumId = $_GET['id'];
+                            } else {
+                                    $url = $_SERVER['REQUEST_URI'];
+                                    $albumId = extractAlbumIdFromUrl($url);
+                                    if ($albumId === false) {
+                                        echo '<h5 class="text-center p-4 mx-5 text-white">Album not found, with this ID!</h5>';
+                                    exit;
+                                    }
                             }
-                        } else {
-                            echo '<p class="text-white">No User Reviews Yet!</p>';
+
+                                    $albumsData = file_get_contents('./data/albums.json');
+                                    $albums = json_decode($albumsData, true);
+
+                                    // Find the album with the given ID
+                                    $selectedAlbum = null;
+                                    foreach ($albums as $album) {
+                                    if ($album['id'] == $albumId) {
+                                            $selectedAlbum = $album;
+                                            break;
+                                    }
+                                    }
+
+                                    // If album not found, display a message
+                                    if (!$selectedAlbum) {
+                                    echo '<h5 class="album-covers mx-5 text-white">Album not found, with this ID!</h5>';
+
+                                    } else {
+                                    // Display album details dynamically
+                                    echo '<h5 class="album-covers mx-5">Immerse Yourself in Musical Excellence</h5>';
+                                    echo '<section class="album_container">';
+                                    echo '<div class="container">';
+                                    echo '<div class="row">';
+                                    echo '<div class="col-md-5">';
+                                    echo '<img class="album_image" src="./images/' . $selectedAlbum['cover_image'] . '" alt="' . $selectedAlbum['title'] . '">';
+                                    echo '</div>';
+                                    echo '<div class="col-md-7">';
+                                    echo '<div class="copy">';
+                                    echo '<div class="text-hero-bold">';
+                                    echo '<ul class="album_details">';
+                                    echo '<p><b>Album Title - </b>' . $selectedAlbum['title'] . '</p>';
+                                    echo '<p><b>Performer - </b>' . $selectedAlbum['performer'] . '</p>';
+                                    echo '<p><b>Genre - </b>' . $selectedAlbum['genre'] . '</p>';
+                                    echo '<p><b>Release Year - </b>' . $selectedAlbum['release_year'] . '</p>';
+                                    echo '<p><b>Description - </b>' . $selectedAlbum['description'] . '</p>';
+                                    echo '<p><b>Total Number of Songs - </b>' . count($selectedAlbum['tracklist']) . ' tracks</p>';
+                                    echo '<p><b>Total Time - </b>' . $selectedAlbum['total_time'] . '</p>';
+                                    echo '<p><b>Producer - </b>' . $selectedAlbum['producer'] . '</p>';
+                                    echo '<p><b>Label - </b>' . $selectedAlbum['label'] . '</p>';
+                                    echo '<p><b>Awards - </b>' . implode(', ', $selectedAlbum['awards']) . '</p>';
+                                    echo '<p><b>Certifications - </b>' . implode(', ', $selectedAlbum['certifications']);
+                                    echo '<p><b>Recommendation Score - </b>' . $selectedAlbum['recommendation_score'] . '</p>';
+                                    echo '</ul>';
+                                    echo '</div>';
+                                    echo '</div>';
+                                    echo '</div>';
+                                    echo '</div>';
+                                    echo '</div>';
+                                    echo '</section>';
+
+                                    // Display tracklist dynamically
+                                    echo '<h5 class="album-covers mx-5 pb-4">Tracklist in the Album</h5>';
+                                    echo '<section>';
+                                    echo '<div class="col-md-12 tab-content" id="pills-tabContent pt-2">';
+                                    foreach ($selectedAlbum['tracklist'] as $index => $track) {
+                                            echo '<div class="tab-pane fade text-white show active">';
+                                            echo '<div class="song-small m-2 ms-4 col-md-6 row align-items-center">';
+                                            echo '<div class="col-1 h3">' . sprintf("%02d", $index + 1) . '</div>';
+                                            echo '<div class="col d-flex align-items-center">';
+                                            echo '<img class="rounded m-1 smaller_img" src="./images/' . $selectedAlbum['cover_image'] . '" alt="">';
+                                            echo '<div class="ms-2">' . $track['title'] . '</div>';
+                                            echo '</div>';
+                                            echo '<div class="col-2"><i class="bi bi-clock m-2"></i>' . $track['duration'] . '</div>';
+                                            echo '</div>';
+                                            echo '</div>';
+                                    }
+                                    echo '</div>';
+                                    echo '</section>';
+                                    
+
+                                    // Display user reviews dynamically
+                                    echo '<h5 id="#user_reviews" class="album-covers mx-5 pb-4">Users Review</h5>';
+                                    echo '<section class="user_reviews">';
+                                    if (isset($selectedAlbum['reviews']) && !empty($selectedAlbum['reviews'])) {
+                                        foreach ($selectedAlbum['reviews'] as $review) {
+                                            echo '<div class="users_review d-flex">';
+                                            echo '<div class="users_box d-flex justify-content-between">';
+                                            echo '<div class="user_container d-flex">';
+                                            echo '<div class="box_1 m-2">';
+                                            echo '<div class="img"><img class="review_images" src="./images/user_icon.png" alt=""></div>'; // Default user image
+                                            echo '</div>';
+                                            echo '<div class="box_2">';
+                                            echo '<p class="names">' . $review['reviewer'] . '</p>';
+                                            echo '<p class="rdate">' . $review['date'] . '</p>';
+                                            echo '</div>';
+                                            echo '</div>';
+                                            echo '<div class="ratings">';
+                                            $rating = explode('/', $review['rating'])[0]; // Extracting only the numeric part of the rating
+                                            for ($i = 0; $i < $rating; $i++) {
+                                                echo '<i class="bi bi-star-fill"></i>';
+                                            }
+                                            for ($i = 0; $i < (10 - $rating); $i++) {
+                                                echo '<i class="bi bi-star"></i>';
+                                            }
+                                            echo '<span>' . $review['rating'] . '</span>';
+                                            echo '</div>';
+                                            echo '</div>';
+                                            echo '<div class="comments">';
+                                            echo '<p>' . $review['comment'] . '</p>';
+                                            echo '</div>';
+                                            echo '</div>';
+                                        }
+                                    } else {
+                                        echo '<p class="text-white">No User Reviews Yet!</p>';
+                                    }
+                                    echo '</section>';
                         }
-                        echo '</section>';
+
+
+                        // Check if the user is logged in
+                        if (isset($_SESSION['username'])) {
+                            // Check if the form is submitted
+                            if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['submit_review'])) {
+                                // Get the review details
+                                $reviewer = $_SESSION['username'];
+                                $date = date("F j, Y");
+                                $rating = $_POST['rating'];
+                                $comment = $_POST['comment'];
+
+                                // Load user data
+                                $userData = file_get_contents('./data/user.json');
+                                $users = json_decode($userData, true);
+
+                                // Find the user's ID based on their username
+                                $userId = null;
+                                foreach ($users as $user) {
+                                    if ($user['username'] === $reviewer) {
+                                        $userId = $user['id'];
+                                        break;
+                                    }
+                                }
+
+                                // Add the new review to the album's reviews
+                                // $albumId = $_GET['id'];
+                                $albumsData = file_get_contents('./data/albums.json');
+                                $albums = json_decode($albumsData, true);
+
+                                foreach ($albums as &$album) {
+                                    if ($album['id'] == $albumId) {
+                                        $newReview = [
+                                            'id' => count($album['reviews']) + 1, // Generate a new unique ID for the review
+                                            'user_id' => $userId,
+                                            'reviewer' => $reviewer,
+                                            'date' => $date,
+                                            'rating' => $rating,
+                                            'comment' => $comment
+                                        ];
+                                        $album['reviews'][] = $newReview;
+                                        break;
+                                    }
+                                }
+
+                                // Save the updated album data
+                                file_put_contents('./data/albums.json', json_encode($albums, JSON_PRETTY_PRINT));
+                                // $albumId = $_GET['id']; // Assuming you already have the album ID available
+                                echo '<script>';
+                                echo '    window.location.href = "http://localhost/music_recommendation/album.php?id=' . $albumId . '";'; // Redirect to album.php with the album ID in the URL and scroll to the user reviews section
+                                echo '    alert("Review submitted successfully!");'; // Show a success alert
+                                echo '</script>';
+                                exit; 
+                            }
+
+                            // Display the section for giving reviews
+                            echo '<div class="users_review give_review">';
+                            echo '    <form method="post" action="">';
+                            echo '        <p class="p-0 m-0 d-flex justify-content-center h4">How was your experience?</p>';
+                            echo '        <div class="col-md-12 d-flex justify-content-center">';
+                            for ($i = 0; $i < 10; $i++) {
+                                echo '            <button class="star" type="button">&#9734;</button>';
+                            }
+                            echo '        </div>';
+                            echo '  <input type="hidden" id="custId" name="rating" value="1">';
+                            echo '        <div class="form-group">';
+                            echo '            <label class="form-label" for="email">Write Your Review</label>';
+                            echo '            <textarea class="form-control col-md-12" name="comment" id="comment" cols="30" rows="4"></textarea>';
+                            echo '            <div class="invalid-feedback">';
+                            echo '                Please enter your review';
+                            echo '            </div>';
+                            echo '        </div>';
+                            echo '        <div class="submit d-flex justify-content-end">';
+                            echo '            <input type="submit" name="submit_review" class="btn btn-outline-success mt-2" value="Submit">';
+                            echo '        </div>';
+                            echo '    </form>';
+                            echo '</div>';
                         }
+                        
+?>
 
-
-                        ?>
-
-
-                <div class="users_review give_review">
-                        <form action="">
-                                <p class="p-0 m-0 d-flex justify-content-center h4">How was your experience?</p>
-                                <div class="col-md-12 d-flex justify-content-center">
-                                        <button class="star">&#9734;</button>
-                                        <button class="star">&#9734;</button>
-                                        <button class="star">&#9734;</button>
-                                        <button class="star">&#9734;</button>
-                                        <button class="star">&#9734;</button>
-                                        <button class="star">&#9734;</button>
-                                        <button class="star">&#9734;</button>
-                                        <button class="star">&#9734;</button>
-                                        <button class="star">&#9734;</button>
-                                        <button class="star">&#9734;</button>
-                                </div>
-                              <div class="form-group ">
-                                <label class="form-label" for="email">Write Your Review</label>
-                               <textarea class="form-control col-md-12"name="" id="" cols="30" rows="4"></textarea>
-                                <div class="invalid-feedback">
-                                    Please enter your review
-                                </div>
-                        </div>
-                        <div class="submit d-flex justify-content-end">
-                                <input type="button" class="btn btn-outline-success mt-2" value="Submit">
-                        </div>
-                        </form>
-                </div>
-            </section>   
 
 
      </main>
@@ -271,21 +311,27 @@
     
      <script src="js/bootstrap.bundle.min.js"></script>
      <script>
-    const allStar = document.querySelectorAll('.star');
-    allStar.forEach((star, i) => {
-        star.addEventListener('click', function(event) {
-            event.preventDefault(); 
-            let current_star_level = i + 1;
-            allStar.forEach((star, j) => {
-                if (current_star_level >= j + 1) {
-                    star.innerHTML = '&#9733';
-                } else {
-                    star.innerHTML = '&#9734';
-                }
+            const allStar = document.querySelectorAll('.star');
+            const ratingInput = document.getElementById('custId'); // Get the hidden input field
+
+            allStar.forEach((star, i) => {
+                star.addEventListener('click', function(event) {
+                    event.preventDefault(); 
+                    let current_star_level = i + 1;
+                    allStar.forEach((star, j) => {
+                        if (current_star_level >= j + 1) {
+                            star.innerHTML = '&#9733';
+                        } else {
+                            star.innerHTML = '&#9734';
+                        }
+                    });
+
+                    // Set the value of the hidden input field to the current star level
+                    ratingInput.value = current_star_level;
+                });
             });
-        });
-    });
-</script>
+    </script>
+
 
 </body>
 </html>
