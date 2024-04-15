@@ -1,0 +1,112 @@
+[
+    {
+      "title": "Thriller",
+      "cover_image": "0.png",
+      "performer": "Michael Jackson",
+      "genre": "Pop",
+      "release_year": 1982,
+      "description": "Michael Jackson's iconic album featuring hits like 'Billie Jean' and 'Thriller,' setting new standards in pop music.",
+      "total_songs": 9,
+      "total_time": "42 minutes 19 seconds",
+      "producer": "Quincy Jones",
+      "label": "Epic Records",
+      "awards": ["Grammy Award for Album of the Year"],
+      "certifications": ["33x Platinum (RIAA)"],
+      "recommendation_score": "9/10",
+      "tracklist": [
+        { "number": 1, "title": "My Heart Will Love You", "duration": "04:28" },
+        { "number": 2, "title": "I did it Again", "duration": "03:57" },
+        { "number": 3, "title": "We Stayed", "duration": "03:41" },
+        { "number": 4, "title": "Love You Like You Do", "duration": "04:51" },
+        { "number": 5, "title": "What a Life", "duration": "03:56" },
+        { "number": 6, "title": "Belive Me", "duration": "04:24" },
+        { "number": 7, "title": "I'm Gone Baby", "duration": "04:21" },
+        { "number": 8, "title": "The Loving Days", "duration": "03:53" }
+      ],
+      "reviews": [
+        {
+          "reviewer": "Nina Simon",
+          "date": "April 3, 2027",
+          "rating": "9.5/10",
+          "comment": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa enim deserunt totam nobis facere ab! Quas ducimus ratione et dolore, soluta quos similique unde a! Tenetur ratione aliquid ad!"
+        }
+      ]
+    },
+    {
+      "title": "Back in Black",
+      "cover_image": "0.png",
+      "performer": "AC/DC",
+      "genre": "Hard Rock",
+      "release_year": 1980,
+      "description": "AC/DC's seminal album featuring timeless tracks like 'Back in Black,' 'You Shook Me All Night Long,' and 'Hells Bells.'",
+      "total_songs": 10,
+      "total_time": "42 minutes 11 seconds",
+      "producer": "Robert John 'Mutt' Lange",
+      "label": "Atlantic Records",
+      "awards": ["Grammy Award for Best Hard Rock Performance"],
+      "certifications": ["25x Platinum (RIAA)"],
+      "recommendation_score": "9.5/10",
+      "tracklist": [
+        { "number": 1, "title": "Hells Bells", "duration": "05:12" },
+        { "number": 2, "title": "Shoot to Thrill", "duration": "05:17" },
+        { "number": 3, "title": "What Do You Do for Money Honey", "duration": "03:36" },
+        { "number": 4, "title": "Given the Dog a Bone", "duration": "03:31" },
+        { "number": 5, "title": "Let Me Put My Love into You", "duration": "04:15" },
+        { "number": 6, "title": "Back in Black", "duration": "04:15" },
+        { "number": 7, "title": "You Shook Me All Night Long", "duration": "03:30" },
+        { "number": 8, "title": "Have a Drink on Me", "duration": "03:57" },
+        { "number": 9, "title": "Shake a Leg", "duration": "04:05" },
+        { "number": 10, "title": "Rock and Roll Ain't Noise Pollution", "duration": "04:15" }
+      ],
+      "reviews": [
+        {
+          "reviewer": "John Doe",
+          "date": "May 15, 2027",
+          "rating": "9/10",
+          "comment": "This album is a classic! Each track is a masterpiece."
+        },
+        {
+          "reviewer": "Jane Smith",
+          "date": "June 1, 2027",
+          "rating": "10/10",
+          "comment": "Absolutely fantastic! Can't get enough of it."
+        }
+      ]
+    },
+    {
+      "title": "Dark Side of the Moon",
+      "cover_image": "0.png",
+      "performer": "Pink Floyd",
+      "genre": "Progressive Rock",
+      "release_year": 1973,
+      "description": "Pink Floyd's legendary album that explores themes of life, death, and the human experience through mesmerizing music.",
+      "total_songs": 10,
+      "total_time": "42 minutes 49 seconds",
+      "producer": "Pink Floyd",
+      "label": "Harvest Records",
+      "awards": ["Grammy Hall of Fame"],
+      "certifications": ["15x Platinum (RIAA)"],
+      "recommendation_score": "10/10",
+      "tracklist": [
+        { "number": 1, "title": "Speak to Me", "duration": "01:30" },
+        { "number": 2, "title": "Breathe", "duration": "02:43" },
+        { "number": 3, "title": "On the Run", "duration": "03:35" },
+        { "number": 4, "title": "Time", "duration": "06:53" },
+        { "number": 5, "title": "The Great Gig in the Sky", "duration": "04:44" },
+        { "number": 6, "title": "Money", "duration": "06:30" },
+        { "number": 7, "title": "Us and Them", "duration": "07:51" },
+        { "number": 8, "title": "Any Colour You Like", "duration": "03:26" },
+        { "number": 9, "title": "Brain Damage", "duration": "03:50" },
+        { "number": 10, "title": "Eclipse", "duration": "02:03" }
+      ],
+      "reviews": [
+        {
+          "reviewer": "Alice Johnson",
+          "date": "April 20, 2027",
+          "rating": "10/10",
+          "comment": "An absolute masterpiece! Every song is a journey."
+        }
+      ]
+    }
+  ]
+  

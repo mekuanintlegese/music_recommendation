@@ -1,0 +1,130 @@
+[
+    {
+        "id": 1,
+        "first_name": "John",
+        "last_name": "Doe",
+        "username": "johndoe",
+        "email": "johndoe@example.com",
+        "password": "admin123"
+    },
+    {
+        "id": 2,
+        "first_name": "Jane",
+        "last_name": "Smith",
+        "username": "janesmith",
+        "email": "janesmith@example.com",
+        "password": "admin"
+    },
+    {
+        "id": 3,
+        "first_name": "Mekuanint",
+        "last_name": "Legese",
+        "username": "mick",
+        "email": "mekuanint1212@gmail.com",
+        "password": "$2y$10$x9cu43I.4w45WhsovJr7cus9Dji3fNuWV0xAzitduMYy5\/mJttuhS"
+    },
+    {
+        "id": 4,
+        "first_name": "jkhskd",
+        "last_name": "asdasdas",
+        "username": "mick",
+        "email": "mekuanint@gmail.com",
+        "password": "$2y$10$rdpRUuR7WoXLz4JxpmFPw.tnNMuz4xr.S61eexkYl9OeH4WQFo9hS"
+    },
+    {
+        "id": 5,
+        "first_name": "Mekuanint",
+        "last_name": "Legese",
+        "username": "mick",
+        "email": "johndoe1@example.com",
+        "password": "$2y$10$eCMLg1iPYco\/BJB5QrXtl.wYYzbV2h\/DHdlW6LRU3kfWQ8Yv9D24K"
+    },
+    {
+        "id": 6,
+        "first_name": "Mekuanint",
+        "last_name": "Legese",
+        "username": "mick",
+        "email": "johndoeq@example.com",
+        "password": "$2y$10$zpFYJtha8wTlpqGuunhkQOR.\/a0hfEmuOqTmGAH.NkUpQQWWjitDO"
+    },
+    {
+        "id": 7,
+        "first_name": "Mekuanint",
+        "last_name": "Legese",
+        "username": "mick",
+        "email": "mekuanint2@gmail.com",
+        "password": "$2y$10$bErunu4D02CNn6CkdVY0p.NeLCC7bWVYxhCHvxxFBOeZ6b6Oeuiwm"
+    },
+    {
+        "id": 8,
+        "first_name": "Mekuanint",
+        "last_name": "Legese",
+        "username": "mick",
+        "email": "johndo2e@example.com",
+        "password": "$2y$10$JWzjJhV\/MpMRhmZd3BkmjexEL0CRNARbIQJfWGnZeSixhBRiZ0LNi"
+    },
+    {
+        "id": 9,
+        "first_name": "Mekuanint",
+        "last_name": "Legese",
+        "username": "mick",
+        "email": "johndoe44@example.com",
+        "password": "$2y$10$9a6c2FEAgbsJmKiDbAmmrO8d.ROkgYPjOMInYLZXDQ5j4GcYFE6N."
+    },
+    {
+        "id": 10,
+        "first_name": "Mekuanint",
+        "last_name": "Legese",
+        "username": "mick",
+        "email": "johndoee@example.com",
+        "password": "$2y$10$VkbbaSXsTujyhKg6IU9a4.I9ElfZnqvkOlJB62Su1lagIrdUt3YY2"
+    },
+    {
+        "id": 11,
+        "first_name": "Mekuanint",
+        "last_name": "Legese",
+        "username": "mick",
+        "email": "johndoed@example.com",
+        "password": "$2y$10$hWN1Pv481AH4P3Qva1vH.OKhD8jCuSuIdyjFgcDzVbv9oWMUOml4S"
+    },
+    {
+        "id": 12,
+        "first_name": "Mekuanint",
+        "last_name": "Legese",
+        "username": "mick",
+        "email": "johndoef@example.com",
+        "password": "$2y$10$AcUrS5qnKEh7asIXzN1h5Oy3S5YRt.hAnntxyU\/tV2kxz0joTpgBe"
+    },
+    {
+        "id": 13,
+        "first_name": "Mekuanint",
+        "last_name": "Legese",
+        "username": "mick",
+        "email": "johndoedd@example.com",
+        "password": "$2y$10$2NjfDgf3.vMVOk7Cai4Fbub\/3r7l8MksIzaEmtb.5DKzMKYFLKSua"
+    },
+    {
+        "id": 14,
+        "first_name": "Mekuanint",
+        "last_name": "Legese",
+        "username": "mick",
+        "email": "johndosse@example.com",
+        "password": "$2y$10$950Vx72sZ9893CVVcfJEFurNxGAvF.NEIsNvaOy4SQM.06IhpKDSW"
+    },
+    {
+        "id": 15,
+        "first_name": "Mekuanint",
+        "last_name": "Legese",
+        "username": "mickd",
+        "email": "johndoec@example.com",
+        "password": "$2y$10$XP9CiMHOT09lrYtgXB0IxO4oDflpNyefGqYeGG3orXWJt4dNXfh8K"
+    },
+    {
+        "id": 16,
+        "first_name": "meku",
+        "last_name": "last",
+        "username": "meku",
+        "email": "mekuanint09@gmail.com",
+        "password": "$2y$10$t60beqcciD9oQD2YGi4yWeLC\/px4AQdjYLgvwDtzRg3X00CRPrhHS"
+    }
+]

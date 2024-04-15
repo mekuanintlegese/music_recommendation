@@ -1,3 +1,47 @@
+<?php
+// Start session
+session_start();
+
+// Check if user is already logged in
+if (!isset($_SESSION['username'])) {
+    // Redirect to home page
+    header("Location: index.php");
+    exit;
+}
+
+// Read user data from JSON file
+$userData = file_get_contents('./data/user.json');
+
+// Check if user data was successfully read
+if ($userData === false) {
+    // Handle error, for example:
+    echo "Error: Failed to read user data.";
+    exit;
+}
+
+// Decode JSON data into PHP array
+$users = json_decode($userData, true);
+
+// Check if JSON decoding was successful
+if ($users === null) {
+    // Handle error, for example:
+    echo "Error: Failed to decode user data.";
+    exit;
+}
+
+// Retrieve user data based on the username stored in the session
+$loggedInUser = null;
+foreach ($users as $user) {
+    if ($user["username"] === $_SESSION['username']) {
+        // Found the logged-in user
+        $loggedInUser = $user;
+        break;
+    }
+}
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,56 +56,70 @@
 <body>
 
      <main>
-            <nav class="mainnav shadow navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-             <div class="container-fluid">
-                <a class="navbar-brand" href="#"><i class="bi bi-earbuds"></i> Musicology</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-                </button>
+       <nav class="mainnav shadow navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><i class="bi bi-earbuds"></i> Musicology</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
 
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center>
-                    <li class="nav-item navlist">
-                    <a class="nav-link  active" aria-current="page" href="index.php">Home</a>
-                    </li>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center>
+                        <li class="nav-item navlist">
+                        <a class="nav-link active" aria-current="page" href="index.php">Home</a>
+                        </li>
 
-                    <li class="nav-item navlist">
-                    <a class="nav-link" href="albums.php">Albums</a>
-                    </li>
+                        <li class="nav-item navlist">
+                        <a class="nav-link" href="albums.php">Albums</a>
+                        </li>
 
-                    <li class="nav-item navlist">
-                    <a class="nav-link" href="ranks.php">Ranking</a>
-                    </li>
+                        <li class="nav-item navlist">
+                        <a class="nav-link" href="ranks.php">Ranking</a>
+                        </li>
 
-                    <li class="nav-item navlist">
-                    <a class="nav-link" href="favorites.php">Favorites</a>
-                    </li>
+                        <?php
+                            session_start();
+                            if(isset($_SESSION['username'])) {
+                                $userData = file_get_contents('./data/user.json');
+                                $users = json_decode($userData, true);
+                                $loggedInUser = null;
+                                foreach ($users as $user) {
+                                    if ($user["username"] === $_SESSION['username']) {
+                                        // Found the logged-in user
+                                        $loggedInUser = $user;
+                                        break;
+                                    }
+                                }
+                                echo '<li class="nav-item navlist">';
+                                echo '<a class="nav-link" href="favorites.php">Favorites</a>';
+                                echo '</li>';
 
-                    <img class="rounded-circle" src="./images/user_icon.png" style="height: 40px; width: 40px;" alt="">
-                    <li class="nav-item dropdown"> 
-                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                    Mark
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-end make_black bg-dark">
-                        <li><a class="dropdown-item text-white" href="profile.php"> <i class="bi bi-person"></i> Profile</a></li>
-                        <li><a class="dropdown-item text-white" href="#"><i class="bi bi-gear"></i> Settings</a></li>
-                        <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item text-white" href="#"> <i class="bi bi-box-arrow-right"></i> Logout</a></li>
+                                echo ' <img class="rounded-circle" src="./images/user_icon.png" style="height: 40px; width: 40px;" alt=""> ';
+                                echo ' <li class="nav-item dropdown"> ';
+                                echo ' <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $loggedInUser["first_name"] . '</a>';
+                                echo ' <ul class="dropdown-menu dropdown-menu-end make_black bg-dark">';
+                                echo '     <li><a class="dropdown-item text-white" href="profile.php"> <i class="bi bi-person"></i> Profile</a></li>';
+                                echo '     <li><a class="dropdown-item text-white" href="#"><i class="bi bi-gear"></i> Settings</a></li>';
+                                echo '     <li><hr class="dropdown-divider"></li>';
+                                echo '     <li><a class="dropdown-item text-white" href="logout.php"> <i class="bi bi-box-arrow-right"></i> Logout</a></li>';
+                                echo ' </ul> ';
+                            }
+                        ?>
+
+                        <!-- Check if user is logged in and hide Get Started button -->
+                        <?php
+                            if(!isset($_SESSION['username'])) {
+                                echo '<li class="get-started-button">';
+                                echo '<a class="pt-3" style="padding-top: 10px;" href="./login.php"><button type="button" class="btn btn-outline-primary">Get Started</button></a>';
+                                echo '</li>';
+                            }
+                        ?>                    
                     </ul>
 
-
-                    <li>
-                        <a class="pt-3" styel="padding-top: 10px;" href="./login.php"><button type="button" class="btn btn-outline-primary">Get Started</button></a>
-                    </li>   
-
-                    
-                </ul>
-
-
+                    </div>
                 </div>
-               </div>
-            </nav>
+        </nav>
 
             <section class="hero albums">
                 <div class="prof_conatner">
@@ -71,12 +129,12 @@
                             <img class="profile_image" src="./images/user_icon.png" alt="">
                         </div>
                         <div class="col-md-6 details">
-                            <ul>
-                                <li>First Name: Mick</li>
-                                <li>Last Name: Mick</li>
-                                <li>Username: micke101</li>
-                                <li>Email: micke101@gmail.com</li>
-                            </ul>
+                        <ul>
+                            <li>First Name: <?php echo $loggedInUser["first_name"]; ?></li>
+                            <li>Last Name: <?php echo $loggedInUser["last_name"]; ?></li>
+                            <li>Username: <?php echo $loggedInUser["username"]; ?></li>
+                            <li>Email: <?php echo $loggedInUser["email"]; ?></li>
+                        </ul>
                         </div>
                     </div>
                 </div>
