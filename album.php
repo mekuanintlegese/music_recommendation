@@ -74,7 +74,7 @@
 
                 </div>
                </div>
-        </nav>
+     </nav>
 
            
              <section class="hero album">
@@ -97,218 +97,140 @@
                 </div>
              </section>
            
-            <h5 class="album-covers mx-5">Immerse Yourself in Musical Excellence</h5>
-            <section class="album_container">
-                <div class="container">
-                    <div class="row">
-                    <div class="col-md-5">
-                          <img class="album_image" src="images/0.png" alt="">
-                    </div>
+             <?php
 
-                    <div class="col-md-7">
-                            <div class="copy">
-                                <!-- <div class="text-label">
-                                Immerse Yourself in Musical Excellence
-                                </div> -->
-                                <div class="text-hero-bold">
-                                <ul class="album_details">
-                                    <p> <b> Album Title - </b>   Thriller</p>
-                                    <p> <b>  Performer - </b> Michael Jackson</p>
-                                    <p> <b> Genre - </b>  Pop</p>
-                                    <p> <b>Release Year - </b>  1982</p>
-                                    <p> <b> Description - </b>  Michael Jackson's iconic album featuring hits like "Billie Jean" and "Thriller," setting new standards in pop music.</p>
-                                    <p> <b> Total Number of Songs -</b>  9 tracks</p>
-                                    <p> <b> Total Time -</b>  42 minutes 19 seconds</p>
-                                    <p> <b> Producer -</b>  Quincy Jones</p>
-                                    <p> <b> Label - </b>  Epic Records</p>
-                                    <p> <b> Awards -</b> Grammy Award for Album of the Year.</p>
-                                    <p> <b>  Certifications - </b> 33x Platinum (RIAA).</p>
-                                    <p> <b> Recommendation Score - </b> 9/10</p>                                   
-                                </ul>
-                                </div>
-                           </div>
+                function extractAlbumIdFromUrl($url) {
+                        $pattern = '/\/album.php\?(\d+)/';
+                        if (preg_match($pattern, $url, $matches)) {
+                        $albumId = $matches[1];
+                        return $albumId;
+                        } else {
+                        return false; 
+                        }
+                }
+                // Check if the album ID is provided in the URL
+                if (isset($_GET['id'])) {
+                        $albumId = $_GET['id'];
+                } else {
+                        $url = $_SERVER['REQUEST_URI'];
+                        $albumId = extractAlbumIdFromUrl($url);
+                        if ($albumId === false) {
+                        echo "Album ID is not provided!";
+                        exit;
+                        }
+                }
 
-                    </div>
-                </div>
-            </section>
+                        $albumsData = file_get_contents('./data/albums.json');
+                        $albums = json_decode($albumsData, true);
 
-            <h5 class="album-covers mx-5 pb-4">Tracklist in the Album</h5>
-            <section>
-                <div class="col-md-12  tab-content" id="pills-tabContent pt-2">
-                        <div class="tab-pane fade text-white show active">
-                                <div class="song-small m-2 ms-4 col-md-6 row  align-items-center">
-                                        <div class="col-1 h3">01</div>
-                                        <div class="col d-flex align-items-center">
-                                           <img class="rounded m-1 smaller_img" src="images/0.png" alt="">
-                                           <div class="ms-2">My Heart Will Love You</div> 
-                                        </div>
-                                        <div class="col-2"> <i class="bi bi-clock"></i> 04:28  </div>
-                                </div>
-                        
-                        </div>
-                </div>
-                <div class="col-md-12  tab-content" id="pills-tabContent pt-2">
-                        <div class="tab-pane fade text-white show active">
-                                <div class="song-small m-2 ms-4 col-md-6 row  align-items-center">
-                                        <div class="col-1 h3">02</div>
-                                        <div class="col d-flex align-items-center">
-                                           <img class="rounded m-1 smaller_img" src="images/0.png" alt="">
-                                           <div class="ms-2">I did it Again</div> 
-                                        </div>
-                                        <div class="col-2"> <i class="bi bi-clock"></i> 03:57  </div>
-                                </div>
-                        
-                        </div>
-                </div>
-                <div class="col-md-12  tab-content" id="pills-tabContent pt-2">
-                        <div class="tab-pane fade text-white show active">
-                                <div class="song-small m-2 ms-4 col-md-6 row  align-items-center">
-                                        <div class="col-1 h3">03</div>
-                                        <div class="col d-flex align-items-center">
-                                           <img class="rounded m-1 smaller_img" src="images/0.png" alt="">
-                                           <div class="ms-2">We Stayed</div> 
-                                        </div>
-                                        <div class="col-2"> <i class="bi bi-clock"></i> 03:41  </div>
-                                </div>
-                        
-                        </div>
-                </div>
-                <div class="col-md-12  tab-content" id="pills-tabContent pt-2">
-                        <div class="tab-pane fade text-white show active">
-                                <div class="song-small m-2 ms-4 col-md-6 row  align-items-center">
-                                        <div class="col-1 h3">04</div>
-                                        <div class="col d-flex align-items-center">
-                                           <img class="rounded m-1 smaller_img" src="images/0.png" alt="">
-                                           <div class="ms-2">Love You Like You Do</div> 
-                                        </div>
-                                        <div class="col-2"> <i class="bi bi-clock"></i> 04:51  </div>
-                                </div>
-                        
-                        </div>
-                </div>
-                <div class="col-md-12  tab-content" id="pills-tabContent pt-2">
-                        <div class="tab-pane fade text-white show active">
-                                <div class="song-small m-2 ms-4 col-md-6 row  align-items-center">
-                                        <div class="col-1 h3">05</div>
-                                        <div class="col d-flex align-items-center">
-                                           <img class="rounded m-1 smaller_img" src="images/0.png" alt="">
-                                           <div class="ms-2">What a Life</div> 
-                                        </div>
-                                        <div class="col-2"> <i class="bi bi-clock"></i> 03:56  </div>
-                                </div>
-                        
-                        </div>
-                </div>
-                <div class="col-md-12  tab-content" id="pills-tabContent pt-2">
-                        <div class="tab-pane fade text-white show active">
-                                <div class="song-small m-2 ms-4 col-md-6 row  align-items-center">
-                                        <div class="col-1 h3">06</div>
-                                        <div class="col d-flex align-items-center">
-                                           <img class="rounded m-1 smaller_img" src="images/0.png" alt="">
-                                           <div class="ms-2">Belive Me</div> 
-                                        </div>
-                                        <div class="col-2"> <i class="bi bi-clock"></i> 04:24  </div>
-                                </div>
-                        
-                        </div>
-                </div>
-                <div class="col-md-12  tab-content" id="pills-tabContent pt-2">
-                        <div class="tab-pane fade text-white show active">
-                                <div class="song-small m-2 ms-4 col-md-6 row  align-items-center">
-                                        <div class="col-1 h3">07</div>
-                                        <div class="col d-flex align-items-center">
-                                           <img class="rounded m-1 smaller_img" src="images/0.png" alt="">
-                                           <div class="ms-2">I'm Gone Baby</div> 
-                                        </div>
-                                        <div class="col-2"> <i class="bi bi-clock"></i> 04:21  </div>
-                                </div>
-                        
-                        </div>
-                </div>
-                <div class="col-md-12  tab-content" id="pills-tabContent pt-2">
-                        <div class="tab-pane fade text-white show active">
-                                <div class="song-small m-2 ms-4 col-md-6 row  align-items-center">
-                                        <div class="col-1 h3">08</div>
-                                        <div class="col d-flex align-items-center">
-                                           <img class="rounded m-1 smaller_img" src="images/0.png" alt="">
-                                           <div class="ms-2">The Loving Days</div> 
-                                        </div>
-                                        <div class="col-2"> <i class="bi bi-clock"></i> 03:53  </div>
-                                </div>
-                        
-                        </div>
-                </div>
-            </section>    
+                        // Find the album with the given ID
+                        $selectedAlbum = null;
+                        foreach ($albums as $album) {
+                        if ($album['id'] == $albumId) {
+                                $selectedAlbum = $album;
+                                break;
+                        }
+                        }
 
-            <h5 class="album-covers mx-5 pb-4">Users Review</h5>
-            <section class="user_reviews">
-               
-                <!-- <p class="text-white">No User Reviews Yet!</p> -->
-                
-                <div class="users_review d-flex">
-                        <div class="users_box d-flex justify-content-between">
-                                <div class="user_conatiner d-flex">
-                                        <div class="box_1 m-2">
-                                             <div class="img"><img class="review_images" src="./images/0.png" alt=""></div>
-                                        </div> 
+                        // If album not found, display a message
+                        if (!$selectedAlbum) {
+                        echo "Album not found!";
+                        } else {
+                        // Display album details dynamically
+                        echo '<h5 class="album-covers mx-5">Immerse Yourself in Musical Excellence</h5>';
+                        echo '<section class="album_container">';
+                        echo '<div class="container">';
+                        echo '<div class="row">';
+                        echo '<div class="col-md-5">';
+                        echo '<img class="album_image" src="./images/' . $selectedAlbum['cover_image'] . '" alt="' . $selectedAlbum['title'] . '">';
+                        echo '</div>';
+                        echo '<div class="col-md-7">';
+                        echo '<div class="copy">';
+                        echo '<div class="text-hero-bold">';
+                        echo '<ul class="album_details">';
+                        echo '<p><b>Album Title - </b>' . $selectedAlbum['title'] . '</p>';
+                        echo '<p><b>Performer - </b>' . $selectedAlbum['performer'] . '</p>';
+                        echo '<p><b>Genre - </b>' . $selectedAlbum['genre'] . '</p>';
+                        echo '<p><b>Release Year - </b>' . $selectedAlbum['release_year'] . '</p>';
+                        echo '<p><b>Description - </b>' . $selectedAlbum['description'] . '</p>';
+                        echo '<p><b>Total Number of Songs - </b>' . count($selectedAlbum['tracklist']) . ' tracks</p>';
+                        echo '<p><b>Total Time - </b>' . $selectedAlbum['total_time'] . '</p>';
+                        echo '<p><b>Producer - </b>' . $selectedAlbum['producer'] . '</p>';
+                        echo '<p><b>Label - </b>' . $selectedAlbum['label'] . '</p>';
+                        echo '<p><b>Awards - </b>' . implode(', ', $selectedAlbum['awards']) . '</p>';
+                        echo '<p><b>Certifications - </b>' . implode(', ', $selectedAlbum['certifications']);
+                        echo '<p><b>Recommendation Score - </b>' . $selectedAlbum['recommendation_score'] . '</p>';
+                        echo '</ul>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</div>';
+                        echo '</section>';
 
-                                        <div class="box_2">
-                                                <p class="names">Nina Simon</p>
-                                                <p class="rdate">April 3, 2027</p>
-                                        </div>
-                                </div>
+                        // Display tracklist dynamically
+                        echo '<h5 class="album-covers mx-5 pb-4">Tracklist in the Album</h5>';
+                        echo '<section>';
+                        echo '<div class="col-md-12 tab-content" id="pills-tabContent pt-2">';
+                        foreach ($selectedAlbum['tracklist'] as $index => $track) {
+                                echo '<div class="tab-pane fade text-white show active">';
+                                echo '<div class="song-small m-2 ms-4 col-md-6 row align-items-center">';
+                                echo '<div class="col-1 h3">' . sprintf("%02d", $index + 1) . '</div>';
+                                echo '<div class="col d-flex align-items-center">';
+                                echo '<img class="rounded m-1 smaller_img" src="./images/' . $selectedAlbum['cover_image'] . '" alt="">';
+                                echo '<div class="ms-2">' . $track['title'] . '</div>';
+                                echo '</div>';
+                                echo '<div class="col-2"><i class="bi bi-clock m-2"></i>' . $track['duration'] . '</div>';
+                                echo '</div>';
+                                echo '</div>';
+                        }
+                        echo '</div>';
+                        echo '</section>';
+                        
 
-                                <div class="ratings">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star"></i>
-                                   
-                                   <span> 9.5/10</span>
-                                </div>
-                        </div>
-                        <div class="comments">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa enim deserunt totam nobis facere ab! Quas ducimus ratione et dolore, soluta quos similique unde a! Tenetur ratione aliquid ad!</p>
-                        </div>
-                </div>
-                <div class="users_review d-flex">
-                        <div class="users_box d-flex justify-content-between">
-                                <div class="user_conatiner d-flex">
-                                        <div class="box_1 m-2">
-                                             <div class="img"><img class="review_images" src="./images/0.png" alt=""></div>
-                                        </div> 
 
-                                        <div class="box_2">
-                                                <p class="names">Nina Simon</p>
-                                                <p class="rdate">April 3, 2027</p>
-                                        </div>
-                                </div>
 
-                                <div class="ratings">
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star-fill"></i>
-                                    <i class="bi bi-star"></i>
-                                   
-                                   <span> 9.5/10</span>
-                                </div>
-                        </div>
-                        <div class="comments">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint ipsa enim deserunt totam nobis facere ab! Quas ducimus ratione et dolore, soluta quos similique unde a! Tenetur ratione aliquid ad!</p>
-                        </div>
-                </div>
+                        // Display user reviews dynamically
+                        echo '<h5 class="album-covers mx-5 pb-4">Users Review</h5>';
+                        echo '<section class="user_reviews">';
+                        if (isset($selectedAlbum['reviews']) && !empty($selectedAlbum['reviews'])) {
+                            foreach ($selectedAlbum['reviews'] as $review) {
+                                echo '<div class="users_review d-flex">';
+                                echo '<div class="users_box d-flex justify-content-between">';
+                                echo '<div class="user_container d-flex">';
+                                echo '<div class="box_1 m-2">';
+                                echo '<div class="img"><img class="review_images" src="./images/user_icon.png" alt=""></div>'; // Default user image
+                                echo '</div>';
+                                echo '<div class="box_2">';
+                                echo '<p class="names">' . $review['reviewer'] . '</p>';
+                                echo '<p class="rdate">' . $review['date'] . '</p>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '<div class="ratings">';
+                                $rating = explode('/', $review['rating'])[0]; // Extracting only the numeric part of the rating
+                                for ($i = 0; $i < $rating; $i++) {
+                                    echo '<i class="bi bi-star-fill"></i>';
+                                }
+                                for ($i = 0; $i < (10 - $rating); $i++) {
+                                    echo '<i class="bi bi-star"></i>';
+                                }
+                                echo '<span>' . $review['rating'] . '</span>';
+                                echo '</div>';
+                                echo '</div>';
+                                echo '<div class="comments">';
+                                echo '<p>' . $review['comment'] . '</p>';
+                                echo '</div>';
+                                echo '</div>';
+                            }
+                        } else {
+                            echo '<p class="text-white">No User Reviews Yet!</p>';
+                        }
+                        echo '</section>';
+                        }
+
+
+                        ?>
+
 
                 <div class="users_review give_review">
                         <form action="">

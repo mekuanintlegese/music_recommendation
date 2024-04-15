@@ -74,7 +74,7 @@
 
                 </div>
                </div>
-        </nav>
+    </nav>
 
 
             <section class="hero albums">
@@ -99,65 +99,35 @@
 
             <h5 class="album-covers mx-5">Top Albums of this Week</h5>
             <section class="p-4 mx-5 d-flex justify-content-center albums">
+            <?php
+                // Read data from albums.json
+                $albumsData = file_get_contents('./data/albums.json');
+                $albums = json_decode($albumsData, true);
 
-
-                <div class="m-1 p-4 text-center">
-                    <div class="album_cover">
-                        <img src="images/0.png" class="rounded album-img img-fluid" alt="">
-                        <a href="album.php">
-                            <div class="music_lists">
-                                <i class="bi bi-music-note-list the_icon"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="lead text-white">Album Title</div>
-                    <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">Sond Description</small>
-                </div>
-
-                <div class="m-1 p-4 text-center">
-                    <div class="album_cover">
-                        <img src="images/1.jpg" class="rounded album-img img-fluid" alt="">
-                        <a href="album.php">
-                            <div class="music_lists">
-                                <i class="bi bi-music-note-list the_icon"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="lead text-white">Album Title</div>
-                    <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">Sond Description</small>
-                </div>
-
-                <div class="m-1 p-4 text-center">
-                    <div class="album_cover">
-                        <img src="images/3.jpg" class="rounded album-img img-fluid" alt="">
-                        <a href="album.php">
-                            <div class="music_lists">
-                                <i class="bi bi-music-note-list the_icon"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="lead text-white">Album Title</div>
-                    <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">Sond Description</small>
-                </div>
-
-                <div class="m-1 p-4 text-center">
-                    <div class="album_cover">
-                        <img src="images/3.webp" class="rounded album-img img-fluid" alt="">
-                        <a href="album.php">
-                            <div class="music_lists">
-                                <i class="bi bi-music-note-list the_icon"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="lead text-white">Album Title</div>
-                    <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">Sond Description</small>
-                </div>
-
-            </section>
+                // Check if albums exist
+                if (empty($albums)) {
+                    echo '<div class="m-1 p-4 text-center">';
+                    echo '<p class="text-white">No albums available. Please, try again later!</p>';
+                    echo '</div>';
+                } else {
+                    foreach ($albums as $album) {
+                        echo '<div class="m-1 p-4 text-center">';
+                        echo '<div class="album_cover">';
+                        echo '<img src="./images/' . $album['cover_image'] . '" class="rounded album-img img-fluid" alt="">';
+                        echo '<a href="album.php?' . $album['id'] .'">';
+                        echo '<div class="music_lists">';
+                        echo '<i class="bi bi-music-note-list the_icon"></i>';
+                        echo '</div>';
+                        echo '</a>';
+                        echo '</div>';
+                        echo '<div class="lead text-white">' . $album['title'] . '</div>';
+                        echo '<small class="text-muted text-white">' . $album['performer'] . '</small> <br>';
+                        echo '<small class="text-muted text-white">' . $album['genre'] . '</small>';
+                        echo '</div>';
+                    }
+                }
+                    ?>
+                </section>
      </main>
 
      <footer>
