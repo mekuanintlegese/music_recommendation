@@ -1,14 +1,16 @@
 [
     {
         "id": 1,
+        "picture": "user_icon.png",
         "first_name": "Barry",
         "last_name": "McArdle",
-        "username": "Barry",
+        "username": "barry",
         "email": "barry@gmail.com",
         "password": "$2y$10$t60beqcciD9oQD2YGi4yWeLC\/px4AQdjYLgvwDtzRg3X00CRPrhHS"
     },
     {
         "id": 2,
+        "picture": "user_icon.png",
         "first_name": "Mick",
         "last_name": "Tyson",
         "username": "Mick01",

@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center>
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0  d-flex justify-content-center">
                     <li class="nav-item navlist">
                     <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                     </li>
@@ -95,7 +95,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                             echo ' <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $loggedInUser["first_name"] . '</a>';
                             echo ' <ul class="dropdown-menu dropdown-menu-end make_black bg-dark">';
                             echo '     <li><a class="dropdown-item text-white" href="profile.php"> <i class="bi bi-person"></i> Profile</a></li>';
-                            echo '     <li><a class="dropdown-item text-white" href="#"><i class="bi bi-gear"></i> Settings</a></li>';
+                            echo '     <li><a class="dropdown-item text-white" href="setting.php"><i class="bi bi-gear"></i> Settings</a></li>';
                             echo '     <li><hr class="dropdown-divider"></li>';
                             echo '     <li><a class="dropdown-item text-white" href="logout.php"> <i class="bi bi-box-arrow-right"></i> Logout</a></li>';
                             echo ' </ul> ';

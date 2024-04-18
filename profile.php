@@ -65,7 +65,7 @@ foreach ($users as $user) {
 
 
                     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0 d-flex justify-content-center>
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0  d-flex justify-content-center">
                         <li class="nav-item navlist">
                         <a class="nav-link active" aria-current="page" href="index.php">Home</a>
                         </li>
@@ -91,13 +91,17 @@ foreach ($users as $user) {
                                         break;
                                     }
                                 }
+                                
+                                echo '<li class="nav-item navlist">';
+                                echo '<a class="nav-link" href="favorites.php">Favorites</a>';
+                                echo '</li>';
 
                                 echo ' <img class="rounded-circle" src="./images/user_icon.png" style="height: 40px; width: 40px;" alt=""> ';
                                 echo ' <li class="nav-item dropdown"> ';
                                 echo ' <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">' . $loggedInUser["first_name"] . '</a>';
                                 echo ' <ul class="dropdown-menu dropdown-menu-end make_black bg-dark">';
                                 echo '     <li><a class="dropdown-item text-white" href="profile.php"> <i class="bi bi-person"></i> Profile</a></li>';
-                                echo '     <li><a class="dropdown-item text-white" href="#"><i class="bi bi-gear"></i> Settings</a></li>';
+                                echo '     <li><a class="dropdown-item text-white" href="setting.php"><i class="bi bi-gear"></i> Settings</a></li>';
                                 echo '     <li><hr class="dropdown-divider"></li>';
                                 echo '     <li><a class="dropdown-item text-white" href="logout.php"> <i class="bi bi-box-arrow-right"></i> Logout</a></li>';
                                 echo ' </ul> ';
@@ -123,7 +127,7 @@ foreach ($users as $user) {
 
                     <div class="continer p-2 col-md-12">
                         <div class="col-md-6">
-                            <img class="profile_image" src="./images/user_icon.png" alt="">
+                            <img class="profile_image" src="./images/<?php echo $loggedInUser["picture"]; ?>" alt="<?php echo $loggedInUser["picture"]; ?>">
                         </div>
                         <div class="col-md-6 details">
                         <ul>
