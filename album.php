@@ -262,15 +262,12 @@ ini_set('display_errors', 1);
 
                                     // Check if the rating is more than 5 stars
                                     if ($rating > 5) {
-                                        // Get the album ID (assuming it's available in $albumId)
                                         $albumId = $_GET['id'];
 
                                         // Update the user's favorite albums list
                                         foreach ($users as &$user) {
                                             if ($user['id'] === $userId) {
-                                                // Check if the album is not already in the user's favorite albums list
                                                 if (!in_array($albumId, $user['favorite_albums'])) {
-                                                    // Add the album to the user's favorite albums list
                                                     $user['favorite_albums'][] = $albumId;
                                                 }
                                                 break;
@@ -304,7 +301,6 @@ ini_set('display_errors', 1);
 
                                 // Save the updated album data
                                 file_put_contents('./data/albums.json', json_encode($albums, JSON_PRETTY_PRINT));
-                                // $albumId = $_GET['id']; // Assuming you already have the album ID available
                                 echo '<script>';
                                 echo '    window.location.href = "http://localhost/music_recommendation/album.php?id=' . $albumId . '";'; // Redirect to album.php with the album ID in the URL and scroll to the user reviews section
                                 echo '    alert("Review submitted successfully!");'; // Show a success alert

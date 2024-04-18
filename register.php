@@ -2,6 +2,8 @@
 // Start session
 session_start();
 
+
+
 // Check if user is already logged in
 if (isset($_SESSION['username'])) {
     // Redirect to home page
@@ -54,10 +56,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $newUser = array(
             "id" => $id,
             "first_name" => $firstName,
+            "picture" => "user_icon.png",
             "last_name" => $lastName,
             "username" => $username,
             "email" => $email,
-            "password" => $hashedPassword
+            "password" => $hashedPassword,
+            "favorite_albums" => []
         );
 
         // Add new user to users array
@@ -67,11 +71,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $result = file_put_contents('./data/user.json', json_encode($users, JSON_PRETTY_PRINT));
         if ($result === true) {
             echo '<script>alert("Registration successful. You can now log in.");</script>';
+            header("Location: login.php");
+            exit;
+        } else {
+            echo '<script>alert("An error occurred while saving user data.");</script>';
+            error_reporting(E_ALL);
+            ini_set('display_errors', 1);
         }
-
-        // Redirect to login page
-        header("Location: login.php");
-        exit;
+        
     } catch (Exception $e) {
         http_response_code(500); 
         echo '<script>alert("An error occurred during registration: ' . $e->getMessage() . '");</script>';
@@ -121,7 +128,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     </li>
 
                     <?php
-                        session_start();
                         if(isset($_SESSION['username'])) {
                             $userData = file_get_contents('./data/user.json');
                             $users = json_decode($userData, true);
