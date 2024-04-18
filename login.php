@@ -1,32 +1,37 @@
 <?php
+// Start session
 session_start();
 
 // Check if user is already logged in
 if (isset($_SESSION['username'])) {
+    // Redirect to home page
     header("Location: index.php");
     exit;
 }
 
-
+// Check if form is submitted
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
+    // Get input values
     $email = $_POST["email"];
     $password = $_POST["password"];
 
-
+    // Fetch user data from JSON file
     $userData = file_get_contents('./data/user.json');
     $users = json_decode($userData, true);
 
-s
+    // Check if user exists
     foreach ($users as $user) {
         if ($user["email"] === $email && password_verify($password, $user["password"])) {
+            // Store username in session
             $_SESSION['username'] = $user["username"];
+            // echo "$user[username']"
+            // Redirect to home page
             header("Location: index.php");
             exit;
         }
     }
 
-
+    // If user does not exist or invalid credentials
     echo '<script>alert("Invalid email or password. Please try again.");</script>';
 }
 ?>
@@ -41,6 +46,7 @@ s
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Recommanadtion | Welcome </title>
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/bootstrap-icons.min.css"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" type="text/css" href="css/custom.css">
     <link rel="stylesheet" type="text/css" href="css/login.css">
@@ -96,6 +102,7 @@ s
                         }
                     ?>
 
+                    <!-- Check if user is logged in and hide Get Started button -->
                     <?php
                         if(!isset($_SESSION['username'])) {
                             echo '<li class="get-started-button">';
@@ -149,12 +156,39 @@ s
 
     
      <script src="js/bootstrap.bundle.min.js"></script>
+     <!-- <script>
+        document.getElementById("loginForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+            // Get input values
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
 
+            // Fetch user data from JSON file
+            fetch('user.json')
+                .then(response => response.json())
+                .then(data => {
+                    // Check if user exists
+                    var user = data.find(user => user.email === email && user.password === password);
+                    if (user) {
+                        // User logged in successfully
+                        alert("Welcome back, " + user.username + "!");
+                        // Redirect to home page
+                        window.location.href = "index.php";
+                        // Hide Get Started button
+                                            // Store session using PHP
                     <?php
                         session_start();
                         $_SESSION['username'] = user.username;
                     ?>
-
+                        document.querySelector(".get-started-button").style.display = "none";
+                    } else {
+                        // Invalid credentials
+                        alert("Invalid email or password. Please try again.");
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script> -->
 </body>
 </html>
 
