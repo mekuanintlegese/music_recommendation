@@ -6,7 +6,13 @@
         "last_name": "McArdle",
         "username": "barry",
         "email": "barry@gmail.com",
-        "password": "$2y$10$t60beqcciD9oQD2YGi4yWeLC\/px4AQdjYLgvwDtzRg3X00CRPrhHS"
+        "password": "$2y$10$4e9w356.gGrxSrz0CYX3p.W11xguu2EGby3GcHwOm8Ciyppdjkq3C",
+        "favorite_albums": [
+            123,
+            456,
+            789,
+            "2"
+        ]
     },
     {
         "id": 2,
@@ -15,6 +21,11 @@
         "last_name": "Tyson",
         "username": "Mick01",
         "email": "mick@gmail.com",
-        "password": "$2y$10$t60beqcciD9oQD2YGi4yWeLC\/px4AQdjYLgvwDtzRg3X00CRPrhHS"
+        "password": "$2y$10$t60beqcciD9oQD2YGi4yWeLC\/px4AQdjYLgvwDtzRg3X00CRPrhHS",
+        "favorite_albums": [
+            789,
+            987,
+            654
+        ]
     }
 ]

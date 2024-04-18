@@ -16,7 +16,7 @@ function sanitizeInput($data) {
 }
 
 // Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_data'])) {
     // Sanitize and validate user input
     $first_name = sanitizeInput($_POST["first_name"]);
     $last_name = sanitizeInput($_POST["last_name"]);
@@ -35,9 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Find the logged-in user in the user data
     foreach ($users as &$user) {
-        if ($user["username"] === $_SESSION['username']) {
-            
-            $user["username"] = $username;
+        if ($user["username"] === $_SESSION['username']) {   
             $user["first_name"] = $first_name;
             $user["last_name"] = $last_name;
             $user["email"] = $email;
@@ -67,6 +65,54 @@ foreach ($users as $user) {
         break;
     }
 }
+
+
+
+
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['change_password'])) {
+    // Retrieve form data
+    $currentPassword = $_POST['current_password'];
+    $newPassword = $_POST['new_password'];
+    $confirmPassword = $_POST['confirm_password'];
+
+    // Check if new password and confirm password match
+    if ($newPassword !== $confirmPassword) {
+        // Handle password mismatch
+        exit("New password and confirm password do not match");
+    }
+
+    // Load user data from JSON file
+    $userData = file_get_contents('./data/user.json');
+    $users = json_decode($userData, true);
+
+    // Find the logged-in user in the user data
+    foreach ($users as &$user) {
+        if ($user["username"] === $_SESSION['username']) {
+            // Check if current password matches
+            if (password_verify($currentPassword, $user['password'])) {
+                // Update the password
+                $user['password'] = password_hash($newPassword, PASSWORD_DEFAULT);
+
+                // Write updated user data back to the JSON file
+                file_put_contents('./data/user.json', json_encode($users, JSON_PRETTY_PRINT));
+
+                // Redirect to profile page after successful password change
+                header("Location: profile.php");
+                exit;
+            } else {
+                // Handle incorrect current password
+                exit("Incorrect current password");
+            }
+        }
+    }
+
+    // Handle user not found
+    exit("User not found");
+}
+
+
+
 ?>
 
 
@@ -113,7 +159,6 @@ foreach ($users as $user) {
                     </li>
 
                     <?php
-                        session_start();
                         if(isset($_SESSION['username'])) {
                             $userData = file_get_contents('./data/user.json');
                             $users = json_decode($userData, true);
@@ -183,7 +228,7 @@ foreach ($users as $user) {
                                         <div class="media-body ml-4">
                                             <label class="btn btn-outline-primary">
                                                 Upload new photo
-                                                <input type="file" class="account-settings-fileinput">
+                                                <input type="file" name="username" value="<?php echo $picture; ?>" class="account-settings-fileinput">
                                             </label> &nbsp;
                                             <button type="button" class="btn btn-default md-btn-flat">Reset</button>
                                             <div class="text-light small mt-1">Allowed JPG, GIF or PNG. Max size of 800K</div>
@@ -209,34 +254,36 @@ foreach ($users as $user) {
                                         </div>
                                     </div>
                                     <div class="text-right p-3 ml-3">
-                                        <button type="submit" class="btn btn-primary">Save changes</button>&nbsp; <!-- Submit button -->
+                                        <button type="submit" class="btn btn-primary" name="change_data">Save changes</button>&nbsp; <!-- Submit button -->
                                         <button type="button" class="btn btn-light">Cancel</button>
                                     </div>
                                 </form>
                         </div>
 
 
-
                         <div class="tab-pane fade" id="account-change-password">
                             <div class="card-body pb-2">
-                                <div class="form-group">
-                                    <label class="form-label">Current password</label>
-                                    <input type="password" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">New password</label>
-                                    <input type="password" class="form-control">
-                                </div>
-                                <div class="form-group">
-                                    <label class="form-label">Repeat new password</label>
-                                    <input type="password" class="form-control">
-                                </div>
-                            </div>
-                            <div class="text-right mt-3">
-                                <button type="button" class="btn btn-primary">Save changes</button>&nbsp;
-                                <button type="button" class="btn btn-default">Cancel</button>
+                                <form method="post" action="">
+                                    <div class="form-group">
+                                        <label class="form-label">Current password</label>
+                                        <input type="password" class="form-control" name="current_password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">New password</label>
+                                        <input type="password" class="form-control" name="new_password">
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="form-label">Repeat new password</label>
+                                        <input type="password" class="form-control" name="confirm_password">
+                                    </div>
+                                    <div class="text-right mt-3">
+                                        <button type="submit" class="btn btn-primary" name="change_password">Save changes</button>&nbsp;
+                                        <button type="button" class="btn btn-default">Cancel</button>
+                                    </div>
+                                </form>
                             </div>
                         </div>
+
 
                     </div>
                 </div>

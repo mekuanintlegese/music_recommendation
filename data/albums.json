@@ -175,6 +175,14 @@
                 "date": "May 1, 2027",
                 "rating": "10\/10",
                 "comment": "Absolutely mesmerizing album! The Weeknd never disappoints."
+            },
+            {
+                "id": 2,
+                "user_id": 1,
+                "reviewer": "barry",
+                "date": "April 18, 2024",
+                "rating": "8",
+                "comment": "cool album"
             }
         ]
     },

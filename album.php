@@ -248,6 +248,41 @@ ini_set('display_errors', 1);
                                     }
                                 }
 
+                                // Load user data
+                                $userData = file_get_contents('./data/user.json');
+                                $users = json_decode($userData, true);
+
+                                        // Find the user's ID based on their username
+                                    $userId = null;
+                                    foreach ($users as &$user) {
+                                        if ($user['username'] === $reviewer) {
+                                            $userId = $user['id'];
+                                            break;
+                                        }
+                                    }
+
+                                    // Check if the rating is more than 5 stars
+                                    if ($rating > 5) {
+                                        // Get the album ID (assuming it's available in $albumId)
+                                        $albumId = $_GET['id'];
+
+                                        // Update the user's favorite albums list
+                                        foreach ($users as &$user) {
+                                            if ($user['id'] === $userId) {
+                                                // Check if the album is not already in the user's favorite albums list
+                                                if (!in_array($albumId, $user['favorite_albums'])) {
+                                                    // Add the album to the user's favorite albums list
+                                                    $user['favorite_albums'][] = $albumId;
+                                                }
+                                                break;
+                                            }
+                                        }
+                                    }
+
+                                    // Save the updated user data back to the JSON file
+                                    file_put_contents('./data/user.json', json_encode($users, JSON_PRETTY_PRINT));
+
+
                                 // Add the new review to the album's reviews
                                 // $albumId = $_GET['id'];
                                 $albumsData = file_get_contents('./data/albums.json');
