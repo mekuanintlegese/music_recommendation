@@ -2,17 +2,15 @@
 // Start session
 session_start();
 
-// Check if user is already logged in
+
 if (isset($_SESSION['username'])) {
-    // Redirect to home page
     header("Location: index.php");
     exit;
 }
 
-// Check if form is submitted
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     try {
-        // Get form data
         $username = $_POST["username"];
         $firstName = $_POST["firstName"];
         $lastName = $_POST["lastName"];
@@ -20,9 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $password = $_POST["password"];
         $confirmPassword = $_POST["confirmPassword"];
 
-        // Validate form data (add your own validation rules as needed)
 
-        // Check if passwords match
         if ($password !== $confirmPassword) {
             throw new Exception("Passwords do not match.");
         }
@@ -46,11 +42,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Get the ID for the new user
         $id = end($users)["id"] + 1;
-
-        // Hash the password (you should use stronger encryption in a real application)
         $hashedPassword = password_hash($password, PASSWORD_DEFAULT);
-
-        // Create new user array
         $newUser = array(
             "id" => $id,
             "first_name" => $firstName,
@@ -165,14 +157,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <h1 class="text-center login_title"> <i class="bi bi-music-note-beamed"></i> Register on <span style="color: blue; font-weight: 350;">Musicology!</span> <i class="bi bi-music-note-beamed"></i></h1>
 
                     <form action="register.php" class="row" method="POST" novalidate>
-                            <!-- Username field -->
                             <div class="form-group">
                                 <label class="form-label" for="username">Username</label>
                                 <input class="form-control" type="text" id="username" name="username" required>
                                 <div class="invalid-feedback">Please enter your username</div>
                             </div>
 
-                            <!-- First Name and Last Name fields -->
                             <div class="form-row d-flex justify-content-between">
                                 <div class="col-md-6">
                                     <label class="form-label" for="firstName">First Name</label>
@@ -185,15 +175,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                     <div class="invalid-feedback">Please enter your last name</div>
                                 </div>
                             </div>
-
-                            <!-- Email field -->
+>
                             <div class="form-group">
                                 <label class="form-label" for="email">Email</label>
                                 <input class="form-control" type="email" id="email" name="email" required>
                                 <div class="invalid-feedback">Please enter a valid email address</div>
                             </div>
 
-                            <!-- Password fields -->
                             <div class="form-group">
                                 <label class="form-label" for="password">Password</label>
                                 <input class="form-control" type="password" id="password" name="password" required>
@@ -211,8 +199,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 </div>
                                 <div class="register">Already have account? <a href="login.php">Login</a></div>
                             </div>
-
-                            <!-- Registration button -->
                             <input class="btn btn-dark w-100" type="submit" value="SIGN UP">
                       </form>
 
@@ -225,30 +211,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
      <footer>
         <div class="footer">© 2024 by Barry McArdle.</div>
      </footer>
-
-
-     <!-- Modal -->
-        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-                <?php
-                   include './login/index.php';
-                ?>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
-            </div>
-        </div>
-        </div>
-
-
     
      <script src="js/bootstrap.bundle.min.js"></script>
 </body>

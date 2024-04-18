@@ -105,7 +105,6 @@ ini_set('display_errors', 1);
              </section>
            
              <?php
-                            // Check if the album ID is provided in the URL
                             if (isset($_GET['id'])) {
                                     $albumId = $_GET['id'];
                             } else {
@@ -195,7 +194,7 @@ ini_set('display_errors', 1);
                                             echo '<div class="users_box d-flex justify-content-between">';
                                             echo '<div class="user_container d-flex">';
                                             echo '<div class="box_1 m-2">';
-                                            echo '<div class="img"><img class="review_images" src="./images/user_icon.png" alt=""></div>'; // Default user image
+                                            echo '<div class="img"><img class="review_images" src="./images/user_icon.png" alt=""></div>'; 
                                             echo '</div>';
                                             echo '<div class="box_2">';
                                             echo '<p class="names">' . $review['reviewer'] . '</p>';
@@ -203,7 +202,7 @@ ini_set('display_errors', 1);
                                             echo '</div>';
                                             echo '</div>';
                                             echo '<div class="ratings">';
-                                            $rating = explode('/', $review['rating'])[0]; // Extracting only the numeric part of the rating
+                                            $rating = explode('/', $review['rating'])[0]; 
                                             for ($i = 0; $i < $rating; $i++) {
                                                 echo '<i class="bi bi-star-fill"></i>';
                                             }

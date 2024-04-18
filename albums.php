@@ -101,11 +101,10 @@
             <h5 class="album-covers mx-5">Top Albums of this Week</h5>
             <section class="p-4 mx-5 d-flex justify-content-center albums">
             <?php
-                // Read data from albums.json
+
                 $albumsData = file_get_contents('./data/albums.json');
                 $albums = json_decode($albumsData, true);
 
-                // Check if albums exist
                 if (empty($albums)) {
                     echo '<div class="m-1 p-4 text-center">';
                     echo '<p class="text-white">No albums available. Please, try again later!</p>';

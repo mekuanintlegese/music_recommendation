@@ -1,39 +1,34 @@
 <?php
-// Start session
+
 session_start();
 
 // Check if user is already logged in
 if (!isset($_SESSION['username'])) {
-    // Redirect to home page
     header("Location: index.php");
     exit;
 }
 
-// Read user data from JSON file
 $userData = file_get_contents('./data/user.json');
 
-// Check if user data was successfully read
+
 if ($userData === false) {
-    // Handle error, for example:
     echo "Error: Failed to read user data.";
     exit;
 }
 
-// Decode JSON data into PHP array
+
 $users = json_decode($userData, true);
 
-// Check if JSON decoding was successful
+
 if ($users === null) {
-    // Handle error, for example:
     echo "Error: Failed to decode user data.";
     exit;
 }
 
-// Retrieve user data based on the username stored in the session
+
 $loggedInUser = null;
 foreach ($users as $user) {
     if ($user["username"] === $_SESSION['username']) {
-        // Found the logged-in user
         $loggedInUser = $user;
         break;
     }

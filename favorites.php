@@ -97,67 +97,54 @@
                 </div>
             </section>
 
-            <h5 class="album-covers mx-5">Top Albums of this Week</h5>
-            <section class="p-4 mx-5 d-flex justify-content-center albums">
+            <?php
+                    // Load user data
+                    $userData = file_get_contents('./data/user.json');
+                    $users = json_decode($userData, true);
 
+                    // Find the user's favorite album IDs based on their username
+                    $userFavoriteAlbumIds = [];
+                    foreach ($users as $user) {
+                        if ($user['username'] === $_SESSION['username']) {
+                            $userFavoriteAlbumIds = $user['favorite_albums'];
+                            break;
+                        }
+                    }
 
-                <div class="m-1 p-4 text-center">
-                    <div class="album_cover">
-                        <img src="images/0.png" class="rounded album-img img-fluid" alt="">
-                        <a href="album.php">
-                            <div class="music_lists">
-                                <i class="bi bi-music-note-list the_icon"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="lead text-white">Album Title</div>
-                    <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">Sond Description</small>
-                </div>
+                    // Load album data
+                    $albumsData = file_get_contents('./data/albums.json');
+                    $albums = json_decode($albumsData, true);
 
-                <div class="m-1 p-4 text-center">
-                    <div class="album_cover">
-                        <img src="images/1.jpg" class="rounded album-img img-fluid" alt="">
-                        <a href="album.php">
-                            <div class="music_lists">
-                                <i class="bi bi-music-note-list the_icon"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="lead text-white">Album Title</div>
-                    <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">Sond Description</small>
-                </div>
+                    // Display the section for top albums of the week
+                    echo '<h5 class="album-covers mx-5">Your 5+ Star Rated Albums</h5>';
+                    echo '<section class="p-4 mx-5 d-flex justify-content-center albums">';
 
-                <div class="m-1 p-4 text-center">
-                    <div class="album_cover">
-                        <img src="images/3.jpg" class="rounded album-img img-fluid" alt="">
-                        <a href="album.php">
-                            <div class="music_lists">
-                                <i class="bi bi-music-note-list the_icon"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="lead text-white">Album Title</div>
-                    <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">Sond Description</small>
-                </div>
+                    // Iterate through the user's favorite album IDs and retrieve the corresponding album details
+                    foreach ($userFavoriteAlbumIds as $albumId) {
+                        foreach ($albums as $album) {
+                            if ($album['id'] == $albumId) {
+                                // Display the album details
+                                echo '<div class="m-1 p-4 text-center">';
+                                echo '    <div class="album_cover">';
+                                echo '        <img src="./images/' . $album['cover_image'] . '" class="rounded album-img img-fluid" alt="' . $album['title'] . '">';
+                                echo '        <a href="album.php?id=' . $album['id'] . '">';
+                                echo '            <div class="music_lists">';
+                                echo '                <i class="bi bi-music-note-list the_icon"></i>';
+                                echo '            </div>';
+                                echo '        </a>';
+                                echo '    </div>';
+                                echo '    <div class="lead text-white">' . $album['title'] . '</div>';
+                                echo '    <small class="text-muted text-white">' . $album['artist'] . '</small> <br>';
+                                echo '    <small class="text-muted text-white">' . $album['genre'] . '</small>';
+                                echo '</div>';
+                                break;
+                            }
+                        }
+                    }
 
-                <div class="m-1 p-4 text-center">
-                    <div class="album_cover">
-                        <img src="images/3.webp" class="rounded album-img img-fluid" alt="">
-                        <a href="album.php">
-                            <div class="music_lists">
-                                <i class="bi bi-music-note-list the_icon"></i>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="lead text-white">Album Title</div>
-                    <small class="text-muted text-white">Justin Biber</small> <br>
-                    <small class="text-muted text-white">Sond Description</small>
-                </div>
+                    echo '</section>';
+                    ?>
 
-            </section>
      </main>
 
      <footer>
